@@ -1,0 +1,13 @@
+html,
+body,
+#app {
+  height: 100%;
+  font-family: Roboto, sans-serif;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+@font-face {
+  src: url(../../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf);
+  font-family: MaterialIcons;
+}

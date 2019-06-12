@@ -1,0 +1,55 @@
+{
+  "name": "react-native-electron-starter",
+  "version": "0.0.1",
+  "description": "react-native-electron-starter",
+  "scripts": {
+    "server": "webpack-dev-server --config ./webpack.config.js",
+    "electron": "electron ./src/main.js",
+    "start": "npm run test && npm run build"
+  },
+  "author": "Cody",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/runtime": "^7.4.3",
+    "material-bread": "0.1.6",
+    "warning": "^4.0.3"
+  },
+  "peerDependencies": {
+    "electron": "^4.0.0",
+    "react": "^16.7.0",
+    "react-native-web": "^0.11.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
+    "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
+    "@babel/plugin-proposal-export-default-from": "*",
+    "@babel/plugin-proposal-object-rest-spread": "*",
+    "@babel/plugin-transform-flow-strip-types": "*",
+    "@babel/plugin-transform-regenerator": "^7.4.3",
+    "@babel/plugin-transform-runtime": "*",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-flow": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.5",
+    "cross-env": "^5.2.0",
+    "css-loader": "^2.1.1",
+    "electron": "^4.1.0",
+    "eslint": "^5.15.2",
+    "file-loader": "^3.0.1",
+    "prettier": "^1.16.4",
+    "prettier-eslint": "^8.8.2",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.4",
+    "react-native": "0.59.0",
+    "react-dom": "^16.8.4",
+    "react-native-web": "^0.11.1",
+    "style-loader": "^0.23.1",
+    "url-loader": "^1.1.2",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.2.1"
+  }
+}
