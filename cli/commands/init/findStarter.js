@@ -1,5 +1,5 @@
-const starters = require("../data/starters");
-const convertShorthand = require("./convertShorthand");
+const starters = require("../../data/starters");
+const convertShorthand = require("../../utils/convertShorthand");
 
 module.exports = function(starter) {
   if (starters.longhand.find(item => item == starter)) return starter;
