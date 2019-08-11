@@ -5,6 +5,7 @@ const fs = require("fs-extra");
 const path = require("path");
 const chalk = require("chalk");
 const getStarter = require("./utils/getStarter");
+const displayStarters = require("./utils/displayStarters");
 
 program
   .command("init <name>")
@@ -13,6 +14,14 @@ program
   .option("-s, --starter <template>", "Choose a preset starter")
   .action(function(name, options) {
     cloneContent(name, options);
+  });
+
+program
+  .command("list")
+  .alias("ls")
+  .description("Lists possible starters")
+  .action(function(options) {
+    displayStarters(options);
   });
 
 program.parse(process.argv);
@@ -25,7 +34,16 @@ function cloneContent(name, options) {
       name
     );
   } else {
-    console.log(`ERROR: Cannnot find starter: ${options.starter}`);
+    console.log("");
+    console.log(
+      `${chalk.red.bold("ERROR")}: Cannnot find starter: ${options.starter}`
+    );
+    console.log("");
+    console.log(
+      "To see a list of possible starters type: ",
+      chalk.magenta.bold("react-native-infinity list")
+    );
+    console.log("");
     return;
   }
 
