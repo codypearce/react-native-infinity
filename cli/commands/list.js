@@ -1,4 +1,4 @@
-const starters = require("./starters");
+const starters = require("../data/starters");
 const chalk = require("chalk");
 
 module.exports = function(options) {

@@ -1,4 +1,4 @@
-const starters = require("./starters");
+const starters = require("../data/starters");
 const convertShorthand = require("./convertShorthand");
 
 module.exports = function(starter) {

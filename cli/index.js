@@ -5,7 +5,7 @@ const fs = require("fs-extra");
 const path = require("path");
 const chalk = require("chalk");
 const getStarter = require("./utils/getStarter");
-const displayStarters = require("./utils/displayStarters");
+const list = require("./commands/list");
 
 program
   .command("init <name>")
@@ -21,7 +21,7 @@ program
   .alias("ls")
   .description("Lists possible starters")
   .action(function(options) {
-    displayStarters(options);
+    list(options);
   });
 
 program.parse(process.argv);
@@ -30,7 +30,7 @@ function cloneContent(name, options) {
   const starter = getStarter(options.starter);
   if (starter) {
     const copy = fs.copySync(
-      path.resolve(__dirname, `./starters/${starter}/.`),
+      path.resolve(__dirname, `../starters/${starter}/.`),
       name
     );
   } else {
