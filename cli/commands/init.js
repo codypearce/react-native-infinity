@@ -3,6 +3,7 @@ const path = require("path");
 const chalk = require("chalk");
 const getStarter = require("../utils/getStarter");
 const newLine = require("../console/newLine");
+const horizontalLine = require("../console/horizontalLine");
 
 function init(name, options) {
   const starter = getStarter(options.starter);
@@ -26,13 +27,13 @@ function init(name, options) {
   }
 
   newLine(1);
-  console.log("----------------------------------------------------------");
+  horizontalLine(1);
   console.log(
     `${chalk.cyan.bold("React")} ${chalk.magenta.bold(
       "Native"
     )} ${chalk.green.bold("Inifity")}`
   );
-  console.log("----------------------------------------------------------");
+  horizontalLine(1);
   console.log(chalk.cyan("Get started by:"));
   console.log(chalk.cyan("1."), chalk.blue.bold(`cd ${name}`));
   console.log(chalk.cyan("2."), chalk.blue.bold("npm i"));
@@ -48,11 +49,11 @@ function init(name, options) {
     chalk.cyan("3.3 Android:") + chalk.blue.bold(" npm run android")
   );
 
-  console.log("----------------------------------------------------------");
+  horizontalLine(1);
   console.log(
     "Please visit the documentation for more information: https://github.com/codypearce/react-native-infinity"
   );
-  console.log("----------------------------------------------------------");
+  horizontalLine(1);
   newLine(1);
 }
 

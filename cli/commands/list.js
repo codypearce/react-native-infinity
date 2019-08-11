@@ -1,11 +1,12 @@
 const starters = require("../data/starters");
 const chalk = require("chalk");
 const newLine = require("../console/newLine");
+const horizontalLine = require("../console/horizontalLine");
 
 function list(options) {
   newLine(1);
   console.log("All possible Starters");
-  console.log("----------------------------------------------------------");
+  horizontalLine(1);
   newLine(1);
   console.log(
     `${chalk.magenta(fixedWidthConsole(20, "Longform"))} ${chalk.blue(
