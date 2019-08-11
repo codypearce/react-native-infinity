@@ -8,7 +8,7 @@ const platformCommand = require("../../console/platformCommand");
 
 function handleFound(starter, name) {
   const copy = fs.copySync(
-    path.resolve(__dirname, `../../../starters/${starter}/.`),
+    path.resolve(__dirname, `../../../starters/${starter.starter}/.`),
     name
   );
 
@@ -16,7 +16,7 @@ function handleFound(starter, name) {
 
   packagename();
   horizontalLine(1);
-  console.log(chalk.cyan("Get started by:"));
+  console.log(chalk.cyan("Get started:"));
   console.log(chalk.cyan("1."), chalk.blue.bold(`cd ${name}`));
   console.log(chalk.cyan("2."), chalk.blue.bold("npm i"));
   console.log(
@@ -24,9 +24,10 @@ function handleFound(starter, name) {
       "3. Run the command for the platform(s) you'd like to render to:"
     )
   );
-  platformCommand("web");
-  platformCommand("ios");
-  platformCommand("android");
+  const platformArr = starter.platforms.split(" ");
+  platformArr.map(item => {
+    platformCommand(item);
+  });
 
   newLine(1);
   horizontalLine(1);

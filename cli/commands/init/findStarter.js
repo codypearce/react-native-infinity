@@ -2,10 +2,22 @@ const starters = require("../../data/starters");
 const convertShorthand = require("../../utils/convertShorthand");
 
 module.exports = function(starter) {
-  if (starters.longhand.find(item => item == starter)) return starter;
+  const longhandIndex = starters.longhand.findIndex(item => item == starter);
+  if (longhandIndex > -1) {
+    const platforms = starters.longhandSeparated[longhandIndex];
 
-  if (starters.shorthand.find(item => item == starter.toLowerCase()))
-    return convertShorthand(starter);
+    return { starter, platforms };
+  }
+
+  const shorthandIndex = starters.shorthand.findIndex(
+    item => item == starter.toLowerCase()
+  );
+
+  if (shorthandIndex > -1) {
+    const platforms = starters.longhandSeparated[shorthandIndex];
+    const longhandStarter = starters.longhand[shorthandIndex];
+    return { starter: longhandStarter, platforms };
+  }
 
   return false;
 };
