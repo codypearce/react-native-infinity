@@ -6,18 +6,18 @@ const path = require("path");
 const chalk = require("chalk");
 
 program
-  .command("init")
+  .command("init <name>")
   .alias("i")
-  .description("Initializes project in a new directory")
+  .description("Initializes project in a new directory with a name")
 
-  .action(function() {
-    cloneContent();
+  .action(function(name) {
+    cloneContent(name);
   });
 
 program.parse(process.argv);
 
-function cloneContent() {
-  const copy = fs.copySync(path.resolve(__dirname, "./starters/web/."), "test");
+function cloneContent(name) {
+  const copy = fs.copySync(path.resolve(__dirname, "./starters/web/."), name);
   console.log("");
   console.log("----------------------------------------------------------");
   console.log(
@@ -27,7 +27,7 @@ function cloneContent() {
   );
   console.log("----------------------------------------------------------");
   console.log(chalk.cyan("Get started by:"));
-  console.log(chalk.cyan("1."), chalk.blue.bold("cd test"));
+  console.log(chalk.cyan("1."), chalk.blue.bold(`cd ${name}`));
   console.log(chalk.cyan("2."), chalk.blue.bold("npm i"));
   console.log(
     chalk.cyan(
