@@ -19,12 +19,21 @@ function handleFound(starter, name) {
   console.log(chalk.cyan("Get started:"));
   console.log(chalk.cyan("1."), chalk.blue.bold(`cd ${name}`));
   console.log(chalk.cyan("2."), chalk.blue.bold("npm i"));
+  const platformArr = starter.platforms.split(" ");
+
+  if (platformArr.find(item => item == "Mobile")) {
+    console.log(
+      chalk.cyan("3."),
+      chalk.blue.bold(`npx react-native-rename ${name}`)
+    );
+  }
+  newLine(1);
   console.log(
     chalk.cyan(
-      "3. Run the command for the platform(s) you'd like to render to:"
+      "Finally run the command for the platform(s) you'd like to render to:"
     )
   );
-  const platformArr = starter.platforms.split(" ");
+
   platformArr.map(item => {
     platformCommand(item);
   });
