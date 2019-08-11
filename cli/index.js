@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const program = require("commander");
-const init = require("./commands/init");
+const init = require("./commands/init/index");
 const list = require("./commands/list");
 
 program

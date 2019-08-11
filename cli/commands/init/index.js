@@ -1,30 +1,20 @@
 const fs = require("fs-extra");
 const path = require("path");
 const chalk = require("chalk");
-const getStarter = require("../utils/getStarter");
-const newLine = require("../console/newLine");
-const horizontalLine = require("../console/horizontalLine");
+const getStarter = require("../../utils/getStarter");
+const newLine = require("../../console/newLine");
+const horizontalLine = require("../../console/horizontalLine");
+const handleNotFound = require("./handleNotFound");
 
 function init(name, options) {
   const starter = getStarter(options.starter);
   if (starter) {
     const copy = fs.copySync(
-      path.resolve(__dirname, `../../starters/${starter}/.`),
+      path.resolve(__dirname, `../../../starters/${starter}/.`),
       name
     );
   } else {
-    newLine(1);
-    console.log(
-      `${chalk.red.bold("ERROR")}: Cannnot find starter: ${chalk.blue.bold(
-        options.starter
-      )}`
-    );
-    newLine(1);
-    console.log(
-      "To see a list of possible starters type: ",
-      chalk.magenta.bold("react-native-infinity list")
-    );
-    newLine(1);
+    handleNotFound(options.starter);
     return;
   }
 
