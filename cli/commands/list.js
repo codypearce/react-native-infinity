@@ -2,6 +2,7 @@ const starters = require("../data/starters");
 const chalk = require("chalk");
 const newLine = require("../console/newLine");
 const horizontalLine = require("../console/horizontalLine");
+const fixedWidthCell = require("../console/fixedWidthCell");
 
 function list(options) {
   newLine(1);
@@ -9,16 +10,16 @@ function list(options) {
   horizontalLine(1);
   newLine(1);
   console.log(
-    `${chalk.magenta(fixedWidthConsole(20, "Longform"))} ${chalk.blue(
-      fixedWidthConsole(14, "Shorthand")
-    )} ${chalk.cyan(fixedWidthConsole(19, "Platforms"))} `
+    `${chalk.magenta(fixedWidthCell(20, "Longform"))} ${chalk.blue(
+      fixedWidthCell(14, "Shorthand")
+    )} ${chalk.cyan(fixedWidthCell(19, "Platforms"))} `
   );
   newLine(1);
   for (let i = 0; i < starters.longhand.length; i++) {
     console.log(
-      chalk.magenta(fixedWidthConsole(20, starters.longhand[i])),
-      chalk.blue(fixedWidthConsole(14, starters.shorthand[i])),
-      chalk.cyan(fixedWidthConsole(20, starters.longhandSeparated[i]))
+      chalk.magenta(fixedWidthCell(20, starters.longhand[i])),
+      chalk.blue(fixedWidthCell(14, starters.shorthand[i])),
+      chalk.cyan(fixedWidthCell(20, starters.longhandSeparated[i]))
     );
   }
   newLine(2);
@@ -34,11 +35,6 @@ function list(options) {
     "This will create a new project that is set up to render to Mobile, Web, and Electron with the name AwesomeProject"
   );
   newLine(1);
-}
-
-function fixedWidthConsole(len, str) {
-  const difference = len - str.length;
-  return str + Array(difference).join(" ");
 }
 
 module.exports = list;
