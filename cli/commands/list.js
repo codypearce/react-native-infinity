@@ -1,7 +1,7 @@
 const starters = require("../data/starters");
 const chalk = require("chalk");
 
-module.exports = function(options) {
+function list(options) {
   console.log("");
   console.log("All possible Starters");
   console.log("----------------------------------------------------------");
@@ -32,9 +32,11 @@ module.exports = function(options) {
     "This will create a new project that is set up to render to Mobile, Web, and Electron with the name AwesomeProject"
   );
   console.log("");
-};
+}
 
 function fixedWidthConsole(len, str) {
   const difference = len - str.length;
   return str + Array(difference).join(" ");
 }
+
+module.exports = list;
