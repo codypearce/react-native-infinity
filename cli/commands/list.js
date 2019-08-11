@@ -3,10 +3,14 @@ const chalk = require("chalk");
 const newLine = require("../console/newLine");
 const horizontalLine = require("../console/horizontalLine");
 const fixedWidthCell = require("../console/fixedWidthCell");
+const packagename = require("../console/packageName");
 
 function list(options) {
   newLine(1);
+  packagename();
+  newLine(1);
   console.log("All possible Starters");
+
   horizontalLine(1);
   newLine(1);
   console.log(

@@ -3,6 +3,7 @@ const path = require("path");
 const chalk = require("chalk");
 const newLine = require("../../console/newLine");
 const horizontalLine = require("../../console/horizontalLine");
+const packagename = require("../../console/packageName");
 
 function handleFound(starter, name) {
   const copy = fs.copySync(
@@ -11,12 +12,8 @@ function handleFound(starter, name) {
   );
 
   newLine(1);
-  horizontalLine(1);
-  console.log(
-    `${chalk.cyan.bold("React")} ${chalk.magenta.bold(
-      "Native"
-    )} ${chalk.green.bold("Inifity")}`
-  );
+
+  packagename();
   horizontalLine(1);
   console.log(chalk.cyan("Get started by:"));
   console.log(chalk.cyan("1."), chalk.blue.bold(`cd ${name}`));
