@@ -2,6 +2,7 @@ const fs = require("fs-extra");
 const path = require("path");
 const chalk = require("chalk");
 const getStarter = require("../utils/getStarter");
+const newLine = require("../console/newLine");
 
 function init(name, options) {
   const starter = getStarter(options.starter);
@@ -11,20 +12,20 @@ function init(name, options) {
       name
     );
   } else {
-    console.log("");
+    newLine(1);
     console.log(
       `${chalk.red.bold("ERROR")}: Cannnot find starter: ${options.starter}`
     );
-    console.log("");
+    newLine(1);
     console.log(
       "To see a list of possible starters type: ",
       chalk.magenta.bold("react-native-infinity list")
     );
-    console.log("");
+    newLine(1);
     return;
   }
 
-  console.log("");
+  newLine(1);
   console.log("----------------------------------------------------------");
   console.log(
     `${chalk.cyan.bold("React")} ${chalk.magenta.bold(
@@ -52,7 +53,7 @@ function init(name, options) {
     "Please visit the documentation for more information: https://github.com/codypearce/react-native-infinity"
   );
   console.log("----------------------------------------------------------");
-  console.log("");
+  newLine(1);
 }
 
 module.exports = init;

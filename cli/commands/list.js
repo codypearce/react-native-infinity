@@ -1,17 +1,18 @@
 const starters = require("../data/starters");
 const chalk = require("chalk");
+const newLine = require("../console/newLine");
 
 function list(options) {
-  console.log("");
+  newLine(1);
   console.log("All possible Starters");
   console.log("----------------------------------------------------------");
-  console.log("");
+  newLine(1);
   console.log(
     `${chalk.magenta(fixedWidthConsole(20, "Longform"))} ${chalk.blue(
       fixedWidthConsole(14, "Shorthand")
     )} ${chalk.cyan(fixedWidthConsole(19, "Platforms"))} `
   );
-  console.log("");
+  newLine(1);
   for (let i = 0; i < starters.longhand.length; i++) {
     console.log(
       chalk.magenta(fixedWidthConsole(20, starters.longhand[i])),
@@ -19,19 +20,19 @@ function list(options) {
       chalk.cyan(fixedWidthConsole(20, starters.longhandSeparated[i]))
     );
   }
-  console.log("");
-  console.log("");
+  newLine(2);
+
   console.log(
     "Usage:",
     chalk.blue.bold(
       "react-native-infinity init AwesomeProject -s mobileWebElectron"
     )
   );
-  console.log("");
+  newLine(1);
   console.log(
     "This will create a new project that is set up to render to Mobile, Web, and Electron with the name AwesomeProject"
   );
-  console.log("");
+  newLine(1);
 }
 
 function fixedWidthConsole(len, str) {
