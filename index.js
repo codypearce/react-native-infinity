@@ -3,11 +3,18 @@ const fs = require("fs-extra");
 const path = require("path");
 const chalk = require("chalk");
 
-program.option("-c, --copy", "copy");
+program
+  .command("init")
+  .alias("i")
+  .description("Initializes project in a new directory")
+
+  .action(function() {
+    cloneContent();
+  });
 
 program.parse(process.argv);
 
-if (program.copy) {
+function cloneContent() {
   const copy = fs.copySync(path.resolve(__dirname, "./starters/web/."), "test");
   console.log("");
   console.log("----------------------------------------------------------");
