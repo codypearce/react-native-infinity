@@ -15,6 +15,7 @@ function list(options) {
     )} ${chalk.cyan(fixedWidthCell(19, "Platforms"))} `
   );
   newLine(1);
+
   for (let i = 0; i < starters.longhand.length; i++) {
     console.log(
       chalk.magenta(fixedWidthCell(20, starters.longhand[i])),
@@ -22,6 +23,7 @@ function list(options) {
       chalk.cyan(fixedWidthCell(20, starters.longhandSeparated[i]))
     );
   }
+
   newLine(2);
 
   console.log(

@@ -15,7 +15,9 @@ function init(name, options) {
   } else {
     newLine(1);
     console.log(
-      `${chalk.red.bold("ERROR")}: Cannnot find starter: ${options.starter}`
+      `${chalk.red.bold("ERROR")}: Cannnot find starter: ${chalk.blue.bold(
+        options.starter
+      )}`
     );
     newLine(1);
     console.log(
