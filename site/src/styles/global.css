@@ -15,8 +15,7 @@ body {
 
 #app {
   position: absolute;
-  z-index: 100;
   top: 0;
-  width: 100vw;
-  height: 100vh;
+  left: 0;
+  z-index: 100;
 }

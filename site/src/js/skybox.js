@@ -52,7 +52,6 @@ function init() {
   controls.autoRotateSpeed = 1.0;
 
   window.addEventListener("resize", onWindowResize, false);
-
   animate();
 }
 function onWindowResize() {
@@ -64,8 +63,13 @@ function onWindowResize() {
 
 function animate() {
   controls.update();
-  requestAnimationFrame(animate);
   renderer.render(scene, camera);
+  requestAnimationFrame(animate);
+  if (controls.enabled == true && window.location.pathname !== "/") {
+    controls.enabled = false;
+  } else if (controls.enabled == false && window.location.pathname == "/") {
+    controls.enabled = true;
+  }
 }
 
 init();
