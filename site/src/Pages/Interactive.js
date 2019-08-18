@@ -86,7 +86,6 @@ const styles = StyleSheet.create({
   },
   section: {
     marginTop: 80,
-    marginBottom: 80,
     zIndex: 100,
     position: "relative"
   }
