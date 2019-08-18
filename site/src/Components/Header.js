@@ -10,11 +10,20 @@ export default class Header extends React.Component {
     return (
       <Appbar
         barType={"normal"}
+        style={{ backgroundColor: "transparent" }}
         title={
-          <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-            React Native Infinity
+          <Link
+            to="/"
+            style={{
+              textDecoration: "none",
+              color: "white",
+              fontFamily: "Syncopate"
+            }}
+          >
+            REACT NATIVE INFINITY
           </Link>
         }
+        position={"absolute"}
         actionItems={[
           <HeaderLink text={"Interactive"} to="/interactive" />,
           <HeaderLink text={"CLI"} to="/cli" />,
