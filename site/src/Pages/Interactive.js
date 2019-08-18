@@ -8,11 +8,26 @@ import CLICard from "../Components/CLICard";
 export default class App extends React.Component {
   state = {
     appName: "AwesomeProject",
-    starter: "m"
+    starter: "m",
+    platforms: ["m"]
   };
 
+  handlePlatform(platform) {
+    const { platforms } = this.state;
+    const newPlatforms = platforms.slice();
+    const index = newPlatforms.findIndex(item => item == platform);
+    if (index > -1) {
+      newPlatforms.splice(index, 1);
+    } else {
+      newPlatforms.push(platform);
+    }
+    console.log(index);
+    this.setState({ platforms: newPlatforms });
+  }
+
   render() {
-    console.log(this.state);
+    const { platforms } = this.state;
+
     return (
       <View style={styles.space}>
         <View style={styles.content}>
@@ -39,6 +54,46 @@ export default class App extends React.Component {
             />
           </View>
           <View style={styles.section}>
+            <Text style={styles.h2}>Platforms</Text>
+            <View style={styles.row}>
+              <Button
+                type="flat"
+                text="Mobile"
+                style={{
+                  height: 150,
+                  width: 150,
+                  flexDirection: "column",
+                  opacity: platforms.find(item => item == "m") ? 1 : 0.7,
+                  marginRight: 8
+                }}
+                onPress={() => this.handlePlatform("m")}
+              />
+              <Button
+                type="flat"
+                text="Web"
+                style={{
+                  height: 150,
+                  width: 150,
+                  flexDirection: "column",
+                  opacity: platforms.find(item => item == "w") ? 1 : 0.7,
+                  marginRight: 8
+                }}
+                onPress={() => this.handlePlatform("w")}
+              />
+              <Button
+                type="flat"
+                text="Electron"
+                style={{
+                  height: 150,
+                  width: 150,
+                  flexDirection: "column",
+                  opacity: platforms.find(item => item == "e") ? 1 : 0.7
+                }}
+                onPress={() => this.handlePlatform("e")}
+              />
+            </View>
+          </View>
+          <View style={styles.section}>
             <Text style={styles.h2}>CLI Command</Text>
             <CLICard
               appName={this.state.appName}
@@ -54,14 +109,16 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   space: {
     width: "100vw",
-    height: "100vh"
+    height: "100vh",
+    overflowY: "auto"
   },
   content: {
     maxWidth: 972,
     margin: "0 auto",
     marginLeft: "10%",
     marginRight: "auto",
-    paddingTop: 170
+    paddingTop: 170,
+    paddingBottom: 60
   },
 
   row: {
