@@ -1,12 +1,14 @@
 // component.jsx
 import React from "react";
-import { Text, View, StyleSheet, TouchableWithoutFeedback } from "react-native";
-import { Button, Subtitle, TextField } from "material-bread";
+import { Text, View, StyleSheet } from "react-native";
+import { Button, Subtitle, TextField, Card } from "material-bread";
 import HeaderLink from "../Components/HeaderLink";
+import CLICard from "../Components/CLICard";
 
 export default class App extends React.Component {
   state = {
-    appName: ""
+    appName: "AwesomeProject",
+    starter: "m"
   };
 
   render() {
@@ -34,6 +36,13 @@ export default class App extends React.Component {
                 event.target.focus();
               }}
               containerStyle={{ marginTop: 20, maxWidth: 300 }}
+            />
+          </View>
+          <View style={styles.section}>
+            <Text style={styles.h2}>CLI Command</Text>
+            <CLICard
+              appName={this.state.appName}
+              starter={this.state.starter}
             />
           </View>
         </View>
