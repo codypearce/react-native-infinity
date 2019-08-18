@@ -5,12 +5,18 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /.(js|jsx)$/,
         exclude: /node_modules\/(?!(material-bread|react-native-vector-icons)\/).*/,
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-env", "@babel/preset-react"]
+            presets: ["@babel/preset-env", "@babel/preset-react"],
+            plugins: [
+              "@babel/plugin-transform-flow-strip-types",
+              "@babel/plugin-proposal-class-properties",
+              "@babel/plugin-proposal-object-rest-spread",
+              "@babel/plugin-transform-runtime"
+            ]
           }
         }
       },
@@ -21,6 +27,10 @@ module.exports = {
             loader: "html-loader"
           }
         ]
+      },
+      {
+        test: /.(png|woff|woff2|eot|ttf|svg)$/,
+        loader: "url-loader?limit=100000"
       }
     ]
   },
