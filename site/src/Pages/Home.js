@@ -17,7 +17,6 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   space: {
-    backgroundColor: "black",
     height: "100vh",
     width: "100vw",
     paddingTop: 56

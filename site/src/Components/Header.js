@@ -10,7 +10,8 @@ export default class Header extends React.Component {
     return (
       <Appbar
         barType={"normal"}
-        style={{ backgroundColor: "transparent" }}
+        elevation={0}
+        style={{ backgroundColor: "transparent", boxShadow: "none" }}
         title={
           <Link
             to="/"
