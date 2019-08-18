@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from "./Pages/Home";
-import About from "./Pages/About";
+import Interactive from "./Pages/Interactive";
 import Header from "./Components/Header";
 
 function AppRouter() {
@@ -10,7 +10,7 @@ function AppRouter() {
       <div>
         <Header />
         <Route path="/" exact component={Home} />
-        <Route path="/about" exact component={About} />
+        <Route path="/interactive" exact component={Interactive} />
       </div>
     </Router>
   );
