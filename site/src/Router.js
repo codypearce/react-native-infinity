@@ -9,17 +9,6 @@ function AppRouter() {
     <Router>
       <div>
         <Header />
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about/">About</Link>
-            </li>
-          </ul>
-        </nav>
-
         <Route path="/" exact component={Home} />
         <Route path="/about" exact component={About} />
       </div>
