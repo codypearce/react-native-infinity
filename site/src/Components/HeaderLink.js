@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 
 export default class HeaderLink extends React.Component {
   render() {
-    const { text, to } = this.props;
+    const { text, to, buttonProps } = this.props;
     return (
       <Link to={to} style={{ textDecoration: "none" }}>
-        <Button text={text} textColor={"white"} />
+        <Button text={text} {...buttonProps} />
       </Link>
     );
   }

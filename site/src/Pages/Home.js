@@ -1,7 +1,8 @@
 // component.jsx
 import React from "react";
 import { Text, View, StyleSheet } from "react-native";
-import { Button } from "material-bread";
+import { Button, Subtitle } from "material-bread";
+import HeaderLink from "../Components/HeaderLink";
 
 export default class App extends React.Component {
   render() {
@@ -9,6 +10,28 @@ export default class App extends React.Component {
       <View style={styles.space}>
         <View style={styles.content}>
           <Text style={styles.title}>REACT NATIVE INFINITY</Text>
+          <Subtitle
+            text="A React Native Starter For All Platforms"
+            style={styles.caption}
+          />
+          <View style={styles.row}>
+            <HeaderLink
+              to="/interactive"
+              buttonProps={{
+                type: "outlined",
+                style: { marginRight: 8 }
+              }}
+              text="Get started"
+            />
+            <HeaderLink
+              to="/cli"
+              buttonProps={{
+                type: "outlined",
+                textColor: "#E91E63"
+              }}
+              text="Docs"
+            />
+          </View>
         </View>
       </View>
     );
@@ -26,11 +49,20 @@ const styles = StyleSheet.create({
     width: "100vw",
     marginTop: -56,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  row: {
+    flexDirection: "row",
+    marginTop: 16
   },
   title: {
     color: "white",
     fontSize: 58,
     fontFamily: "Syncopate"
+  },
+  caption: {
+    color: "rgba(255,255,255,.85)",
+    fontSize: 20
   }
 });

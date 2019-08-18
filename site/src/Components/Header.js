@@ -26,8 +26,16 @@ export default class Header extends React.Component {
         }
         position={"absolute"}
         actionItems={[
-          <HeaderLink text={"Interactive"} to="/interactive" />,
-          <HeaderLink text={"CLI"} to="/cli" />,
+          <HeaderLink
+            text={"Interactive"}
+            to="/interactive"
+            buttonProps={{ textColor: "white" }}
+          />,
+          <HeaderLink
+            text={"CLI"}
+            to="/cli"
+            buttonProps={{ textColor: "white" }}
+          />,
           <Anchor
             url="https://github.com/codypearce/react-native-infinity"
             style={{ textDecoration: "none", color: "white" }}
