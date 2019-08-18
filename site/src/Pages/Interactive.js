@@ -4,6 +4,7 @@ import { Text, View, StyleSheet } from "react-native";
 import { Button, Subtitle, TextField, Card } from "material-bread";
 import HeaderLink from "../Components/HeaderLink";
 import CLICard from "../Components/CLICard";
+import PlatformButton from "../Components/PlatformButton";
 
 export default class App extends React.Component {
   state = {
@@ -12,7 +13,7 @@ export default class App extends React.Component {
     platforms: ["m"]
   };
 
-  handlePlatform(platform) {
+  handlePlatform = platform => {
     const { platforms } = this.state;
     const newPlatforms = platforms.slice();
     const index = newPlatforms.findIndex(item => item == platform);
@@ -23,7 +24,7 @@ export default class App extends React.Component {
     }
     console.log(index);
     this.setState({ platforms: newPlatforms });
-  }
+  };
 
   render() {
     const { platforms } = this.state;
@@ -56,40 +57,24 @@ export default class App extends React.Component {
           <View style={styles.section}>
             <Text style={styles.h2}>Platforms</Text>
             <View style={styles.row}>
-              <Button
-                type="flat"
+              <PlatformButton
                 text="Mobile"
-                style={{
-                  height: 150,
-                  width: 150,
-                  flexDirection: "column",
-                  opacity: platforms.find(item => item == "m") ? 1 : 0.7,
-                  marginRight: 8
-                }}
-                onPress={() => this.handlePlatform("m")}
+                platform="m"
+                handlePlatform={this.handlePlatform}
+                active={platforms.find(item => item == "m")}
               />
-              <Button
-                type="flat"
+              <PlatformButton
                 text="Web"
-                style={{
-                  height: 150,
-                  width: 150,
-                  flexDirection: "column",
-                  opacity: platforms.find(item => item == "w") ? 1 : 0.7,
-                  marginRight: 8
-                }}
-                onPress={() => this.handlePlatform("w")}
+                platform="w"
+                handlePlatform={this.handlePlatform}
+                active={platforms.find(item => item == "w")}
               />
-              <Button
-                type="flat"
+              <PlatformButton
                 text="Electron"
-                style={{
-                  height: 150,
-                  width: 150,
-                  flexDirection: "column",
-                  opacity: platforms.find(item => item == "e") ? 1 : 0.7
-                }}
-                onPress={() => this.handlePlatform("e")}
+                platform="e"
+                handlePlatform={this.handlePlatform}
+                active={platforms.find(item => item == "e")}
+                endButton
               />
             </View>
           </View>
