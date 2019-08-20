@@ -14,16 +14,22 @@ export default class App extends React.Component {
   };
 
   handlePlatform = platform => {
-    const { platforms } = this.state;
+    const { platforms, command } = this.state;
     const newPlatforms = platforms.slice();
     const index = newPlatforms.findIndex(item => item == platform);
     if (index > -1) {
       newPlatforms.splice(index, 1);
     } else {
-      newPlatforms.push(platform);
+      if (platform == "m") {
+        newPlatforms[0] = platform;
+      } else if (platform == "w") {
+        newPlatforms[1] = platform;
+      } else if (platform == "e") {
+        newPlatforms[2] = platform;
+      }
     }
-    console.log(index);
-    this.setState({ platforms: newPlatforms });
+
+    this.setState({ platforms: newPlatforms, starter: newPlatforms.join("") });
   };
 
   render() {
