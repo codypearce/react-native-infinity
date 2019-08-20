@@ -9,8 +9,10 @@ function AppRouter() {
     <Router>
       <div>
         <Header />
-        <Route path="/" exact component={Home} />
-        <Route path="/interactive" exact component={Interactive} />
+        <div style={{ height: "calc(100vh - 56px)", paddingTop: 56 }}>
+          <Route path="/" exact component={Home} />
+          <Route path="/interactive" exact component={Interactive} />
+        </div>
       </div>
     </Router>
   );

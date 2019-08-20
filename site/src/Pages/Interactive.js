@@ -43,10 +43,7 @@ export default class App extends React.Component {
             <TextField
               id="app-name"
               value={this.state.appName}
-              style={{ color: "white" }}
               label={"App Name"}
-              labelColor={"white"}
-              underlineColor={"white"}
               onChangeText={value => this.setState({ appName: value })}
               onClick={event => {
                 event.target.focus();
@@ -94,7 +91,7 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   space: {
     width: "100vw",
-    height: "100vh",
+    height: "100%",
     overflowY: "auto"
   },
   content: {
@@ -102,7 +99,7 @@ const styles = StyleSheet.create({
     margin: "0 auto",
     marginLeft: "10%",
     marginRight: "auto",
-    paddingTop: 170,
+    marginTop: 100,
     paddingBottom: 60
   },
 
@@ -116,7 +113,7 @@ const styles = StyleSheet.create({
     fontFamily: "Syncopate"
   },
   h2: {
-    color: "white",
+    color: "black",
     fontSize: 30,
     fontFamily: "Syncopate"
   },
@@ -127,8 +124,11 @@ const styles = StyleSheet.create({
     lineHeight: 24
   },
   section: {
-    marginTop: 80,
+    marginTop: 40,
     zIndex: 100,
-    position: "relative"
+    position: "relative",
+    backgroundColor: "white",
+    padding: 16,
+    borderRadius: 8
   }
 });
