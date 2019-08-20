@@ -10,6 +10,7 @@ export default class App extends React.Component {
   state = {
     appName: "AwesomeProject",
     starter: "m",
+    starterLong: "Android iOS",
     platforms: ["m"]
   };
 
@@ -17,8 +18,10 @@ export default class App extends React.Component {
     const { platforms, command } = this.state;
     const newPlatforms = platforms.slice();
     const index = newPlatforms.findIndex(item => item == platform);
+    let newStarterLong = ``;
+
     if (index > -1) {
-      newPlatforms.splice(index, 1);
+      newPlatforms[index] = null;
     } else {
       if (platform == "m") {
         newPlatforms[0] = platform;
@@ -29,11 +32,32 @@ export default class App extends React.Component {
       }
     }
 
-    this.setState({ platforms: newPlatforms, starter: newPlatforms.join("") });
+    const starterLong = this.buildStartLong(newPlatforms);
+
+    this.setState({
+      platforms: newPlatforms,
+      starter: newPlatforms.join(""),
+      starterLong
+    });
   };
 
+  buildStartLong(newPlatforms) {
+    let starterLong = ``;
+    console.log(newPlatforms);
+    if (newPlatforms[0]) starterLong = "Android, iOS";
+    if (newPlatforms[1])
+      starterLong += starterLong.length > 0 ? ", Web" : "Web";
+    if (newPlatforms[2])
+      starterLong +=
+        starterLong.length > 0
+          ? ", MacOS, Windows, Linux"
+          : "MacOS, Windows, Linux";
+
+    return starterLong;
+  }
+
   render() {
-    const { platforms } = this.state;
+    const { platforms, starterLong } = this.state;
 
     return (
       <View style={styles.space}>
@@ -53,6 +77,7 @@ export default class App extends React.Component {
             >
               App name
             </Text>
+
             <TextField
               id="app-name"
               value={this.state.appName}
@@ -70,14 +95,20 @@ export default class App extends React.Component {
             />
           </View>
           <View style={styles.section}>
-            <Text
-              style={[
-                styles.h2,
-                { color: this.state.platforms.length < 1 ? "#B71C1C" : "black" }
-              ]}
-            >
-              Platforms
-            </Text>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <Text
+                style={[
+                  styles.h2,
+                  {
+                    color: this.state.platforms.length < 1 ? "#B71C1C" : "black"
+                  }
+                ]}
+              >
+                Platforms
+              </Text>
+              <Subtitle text={starterLong} style={{ marginLeft: 8 }} />
+            </View>
+
             <View style={styles.row}>
               <PlatformButton
                 text="Mobile"
