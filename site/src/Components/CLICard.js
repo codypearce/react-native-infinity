@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Text, View, StyleSheet } from "react-native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { Card, Button } from "material-bread";
@@ -21,11 +21,12 @@ export default class CLICard extends React.Component {
       setTimeout(() => this.setState({ copySuccess: false }), 1000);
     });
   };
-  render() {
+
+  renderContent() {
     const { appName, starter } = this.props;
     const { copySuccess } = this.state;
     return (
-      <Card style={styles.cliCard}>
+      <Fragment>
         <Text style={styles.text}>
           npx react-native-infinity init {appName} --starter {starter}
         </Text>
@@ -37,6 +38,36 @@ export default class CLICard extends React.Component {
           dense
           onPress={this.copyToClipboard}
         />
+      </Fragment>
+    );
+  }
+
+  renderError = () => {
+    const { appName, starter } = this.props;
+    const noAppName = appName.length < 1;
+    const noStarter = starter.length < 1;
+
+    let errorText = noStarter
+      ? "Your app needs to target at least one platform"
+      : "";
+    errorText = noAppName ? "App name is required" : errorText;
+    return (
+      <Fragment>
+        <Text style={styles.text}>{errorText}</Text>
+      </Fragment>
+    );
+  };
+  render() {
+    const { appName, starter } = this.props;
+    const hasError = appName.length < 1 || starter.length < 1;
+    return (
+      <Card
+        style={[
+          styles.cliCard,
+          { backgroundColor: hasError ? "#B71C1C" : "#212121" }
+        ]}
+      >
+        {hasError ? this.renderError() : this.renderContent()}
       </Card>
     );
   }

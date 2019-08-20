@@ -45,20 +45,39 @@ export default class App extends React.Component {
           />
 
           <View style={styles.section}>
-            <Text style={styles.h2}>App name</Text>
+            <Text
+              style={[
+                styles.h2,
+                { color: this.state.appName.length < 1 ? "#B71C1C" : "black" }
+              ]}
+            >
+              App name
+            </Text>
             <TextField
               id="app-name"
               value={this.state.appName}
-              label={"App Name"}
+              label={
+                this.state.appName.length < 1
+                  ? "AppName is required"
+                  : "App Name"
+              }
               onChangeText={value => this.setState({ appName: value })}
               onClick={event => {
                 event.target.focus();
               }}
               containerStyle={{ marginTop: 20, maxWidth: 300 }}
+              error={this.state.appName.length < 1}
             />
           </View>
           <View style={styles.section}>
-            <Text style={styles.h2}>Platforms</Text>
+            <Text
+              style={[
+                styles.h2,
+                { color: this.state.platforms.length < 1 ? "#B71C1C" : "black" }
+              ]}
+            >
+              Platforms
+            </Text>
             <View style={styles.row}>
               <PlatformButton
                 text="Mobile"
