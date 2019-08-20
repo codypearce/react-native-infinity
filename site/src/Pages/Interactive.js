@@ -10,7 +10,7 @@ export default class App extends React.Component {
   state = {
     appName: "AwesomeProject",
     starter: "m",
-    starterLong: "Android iOS",
+    starterLong: "Android, iOS",
     platforms: ["m"]
   };
 
@@ -18,7 +18,6 @@ export default class App extends React.Component {
     const { platforms, command } = this.state;
     const newPlatforms = platforms.slice();
     const index = newPlatforms.findIndex(item => item == platform);
-    let newStarterLong = ``;
 
     if (index > -1) {
       newPlatforms[index] = null;
@@ -57,7 +56,7 @@ export default class App extends React.Component {
   }
 
   render() {
-    const { platforms, starterLong } = this.state;
+    const { platforms, starterLong, starter } = this.state;
 
     return (
       <View style={styles.space}>
@@ -100,11 +99,24 @@ export default class App extends React.Component {
                 style={[
                   styles.h2,
                   {
-                    color: this.state.platforms.length < 1 ? "#B71C1C" : "black"
+                    color: starter.length < 1 ? "#B71C1C" : "black"
                   }
                 ]}
               >
                 Platforms
+              </Text>
+              <Text
+                style={[
+                  styles.h2,
+                  {
+                    fontSize: 24,
+                    color: starter.length < 1 ? "#B71C1C" : "#555"
+                  }
+                ]}
+              >
+                {`    ${
+                  starter.length < 1 ? 0 : starterLong.split(",").length
+                }`}
               </Text>
               <Subtitle text={starterLong} style={{ marginLeft: 8 }} />
             </View>
