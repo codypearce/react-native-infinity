@@ -96,11 +96,13 @@ const styles = StyleSheet.create({
   },
   content: {
     maxWidth: 972,
-    margin: "0 auto",
     marginLeft: "10%",
     marginRight: "auto",
-    marginTop: 100,
-    paddingBottom: 60
+    marginTop: 60,
+    marginBottom: 60,
+    backgroundColor: "white",
+    padding: 24,
+    borderRadius: 8
   },
 
   row: {
@@ -108,7 +110,7 @@ const styles = StyleSheet.create({
     marginTop: 16
   },
   title: {
-    color: "white",
+    color: "black",
     fontSize: 40,
     fontFamily: "Syncopate"
   },
@@ -118,17 +120,15 @@ const styles = StyleSheet.create({
     fontFamily: "Syncopate"
   },
   caption: {
-    color: "rgba(255,255,255,.85)",
+    color: "black",
     fontSize: 16,
     marginTop: 12,
     lineHeight: 24
   },
   section: {
-    marginTop: 40,
+    marginTop: 60,
     zIndex: 100,
     position: "relative",
-    backgroundColor: "white",
-    padding: 16,
-    borderRadius: 8
+    backgroundColor: "white"
   }
 });

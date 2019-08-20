@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
   cliCard: {
     padding: 12,
     marginTop: 10,
-    backgroundColor: "#2196F3",
+    backgroundColor: "#212121",
     position: "relative"
   },
   copyButton: {
