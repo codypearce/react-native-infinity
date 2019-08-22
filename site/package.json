@@ -28,6 +28,7 @@
     "react": "^16.9.0",
     "react-art": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-native-extended-stylesheet": "^0.12.0",
     "react-native-svg": "^9.6.4",
     "react-native-web": "^0.11.7",
     "react-router-dom": "^5.0.1",

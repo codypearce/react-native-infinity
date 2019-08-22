@@ -3,6 +3,7 @@ import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import { Button, Subtitle } from "material-bread";
 import HeaderLink from "../Components/HeaderLink";
+import EStyleSheet from "react-native-extended-stylesheet";
 
 export default class App extends React.Component {
   render() {
@@ -38,7 +39,7 @@ export default class App extends React.Component {
   }
 }
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
   space: {
     height: "100vh",
     width: "100vw",
@@ -59,10 +60,17 @@ const styles = StyleSheet.create({
   title: {
     color: "white",
     fontSize: 58,
-    fontFamily: "Syncopate"
+    fontFamily: "Syncopate",
+    textAlign: "center"
   },
   caption: {
     color: "rgba(255,255,255,.85)",
-    fontSize: 20
+    fontSize: 20,
+    textAlign: "center"
+  },
+  "@media (max-width: 400)": {
+    title: {
+      fontSize: 30
+    }
   }
 });
