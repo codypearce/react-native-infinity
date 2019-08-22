@@ -6,9 +6,19 @@ import { Link } from "react-router-dom";
 import MCIconButton from "./MCIconButton";
 
 export default class Header extends React.Component {
+  state = {
+    width: 1080
+  };
+  handleLayout = event => {
+    const width = event.nativeEvent.layout.width;
+    this.setState({ width });
+  };
   render() {
+    const { width } = this.state;
+    const widthSmall = width < 550;
     return (
       <Appbar
+        onLayout={this.handleLayout}
         barType={"normal"}
         elevation={0}
         style={{ backgroundColor: "transparent", boxShadow: "none" }}
@@ -21,7 +31,7 @@ export default class Header extends React.Component {
               fontFamily: "Syncopate"
             }}
           >
-            REACT NATIVE INFINITY
+            {widthSmall ? "RNI" : " REACT NATIVE INFINITY"}
           </Link>
         }
         position={"absolute"}
