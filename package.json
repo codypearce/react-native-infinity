@@ -1,8 +1,6 @@
 {
   "name": "react-native-infinity",
   "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,10 +8,28 @@
     "react-native-infinity": "./cli/index.js"
   },
   "author": "codypearce",
-  "license": "ISC",
   "dependencies": {
     "chalk": "^2.4.2",
     "commander": "^2.20.0",
     "fs-extra": "^8.1.0"
+  },
+  "main": "./cli/index.js",
+  "keywords": [
+    "react native",
+    "react starter",
+    "react templates",
+    "all-platforms",
+    "cross-platform"
+  ],
+  "description": "A React Native Starter For All Platforms",
+  "homepage": "http://codypearce.github.io/react-native-infinity/",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codypearce/react-native-ifinity.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codypearce/react-native-ifinity/issues"
   }
 }
