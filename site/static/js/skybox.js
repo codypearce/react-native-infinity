@@ -2,7 +2,7 @@ let scene, camera, renderer, controls;
 const skyboxImage = "purplenebula";
 
 function createPathStrings(filename) {
-  const basePath = "../src/skybox/";
+  const basePath = "/static/skybox/";
   const baseFilename = basePath + filename;
   const fileType = ".png";
   const sides = ["ft", "bk", "up", "dn", "rt", "lf"];
