@@ -4,8 +4,9 @@
   "description": "Doc site for react-native-infinity",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode production",
+    "build": "webpack --mode production && mv ./dist ./gh",
     "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "deploy-docs": "gh-pages -d gh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -35,5 +36,8 @@
     "webpack": "^4.29.6",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.2.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^2.1.1"
   }
 }
