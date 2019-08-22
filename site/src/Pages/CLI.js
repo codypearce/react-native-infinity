@@ -21,7 +21,17 @@ export default class App extends React.Component {
           />
           <View style={styles.section}>
             <Text style={[styles.h2]}>{"Generating a project"}</Text>
-            <Subtitle text="The main  " style={styles.caption} />
+            <View style={styles.wrappingText}>
+              <Subtitle
+                text={`The main way to generate a project is with`}
+                style={styles.caption}
+              />
+              <View style={styles.codeInline}>
+                <Text style={styles.codeInlineText}>
+                  {"init <name> --starter <template>"}
+                </Text>
+              </View>
+            </View>
           </View>
           <View style={styles.section}>
             <Text style={[styles.h2]}>{"Table of Commands"}</Text>
@@ -33,7 +43,7 @@ export default class App extends React.Component {
                 <DataTableCell text={"Options "} />
               </DataTableRow>
               <DataTableRow>
-                <DataTableCell text={"init"} borderRight />
+                <DataTableCell text={"init <name>"} borderRight />
                 <DataTableCell text={"i"} />
                 <DataTableCell
                   text={"Initializes project in a new directory with a name"}
@@ -79,17 +89,18 @@ const styles = StyleSheet.create({
   title: {
     color: "black",
     fontSize: 40,
-    fontFamily: "Syncopate"
+    fontFamily: "Syncopate",
+    marginBottom: 12
   },
   h2: {
     color: "black",
     fontSize: 30,
-    fontFamily: "Syncopate"
+    fontFamily: "Syncopate",
+    marginBottom: 12
   },
   caption: {
     color: "black",
     fontSize: 16,
-    marginTop: 12,
     lineHeight: 24
   },
   section: {
@@ -97,5 +108,20 @@ const styles = StyleSheet.create({
     zIndex: 100,
     position: "relative",
     backgroundColor: "white"
+  },
+  wrappingText: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    alignItems: "center"
+  },
+  codeInline: {
+    backgroundColor: "black",
+    padding: 4,
+    borderRadius: 4,
+    marginLeft: 4,
+    marginRight: 4
+  },
+  codeInlineText: {
+    color: "#2196F3"
   }
 });
