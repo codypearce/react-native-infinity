@@ -1,0 +1,102 @@
+# OSX
+#
+.DS_Store
+src/DS_Store
+*.DS_Store
+# Xcode
+#
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
+project.xcworkspace
+
+# Android/IntelliJ
+#
+build/
+.idea
+.gradle
+local.properties
+*.iml
+
+# node.js
+#
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# BUCK
+buck-out/
+\.buckd/
+*.keystore
+
+# fastlane
+#
+# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
+# screenshots whenever they are needed.
+# For more information about the recommended setup visit:
+# https://docs.fastlane.tools/best-practices/source-control/
+
+*/fastlane/report.xml
+*/fastlane/Preview.html
+*/fastlane/screenshots
+
+# Bundle artifact
+*.jsbundle
+node_modules/**/*
+npm-debug.*
+*.jks
+*.p12
+*.key
+*.mobileprovision
+ios/Index
+site
+gh/**/*
+jest-test-results.json
+.jest-test-results.json
+
+
+docs/**/*
+
+__tests__
+.git
+.storybook
+android
+docker
+docs
+ios
+public
+storybook
+.buckconfig
+.eslintrc
+.flowconfig
+.gitattributes
+.gitignore
+.prettierrc
+.travis.yml
+.watchmanconfig
+App.js
+app.json
+babel.config.js
+./index.js
+package-lock.json
+rn-cli.config.js
+webpack.config.js
+yarn.lock
+src/**/*.stories.js
+src/**/*.test.js
+src/storybook/**/*
+**/*/__snapshots__
+node_modules
