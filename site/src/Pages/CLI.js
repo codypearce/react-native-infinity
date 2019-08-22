@@ -11,6 +11,28 @@ import {
 
 export default class App extends React.Component {
   render() {
+    const options = [
+      { longName: "mobile", shortName: "m", platforms: "Android, iOS" },
+      {
+        longName: "mobileWeb",
+        shortName: "mw",
+        platforms: "Android, iOS, Web"
+      },
+      {
+        longName: "mobileWebElectron",
+        shortName: "mwe",
+        platforms: "Android, iOS, Web, Electron"
+      },
+      {
+        longName: "mobileElectron",
+        shortName: "me",
+        platforms: "Android, iOS, Electron"
+      },
+      { longName: "web", shortName: "w", platforms: "Web" },
+      { longName: "webElectron", shortName: "we", platforms: "Web, Electron" },
+      { longName: "electron", shortName: "e", platforms: "Electron" }
+    ];
+
     return (
       <View style={styles.space}>
         <View style={styles.content}>
@@ -31,6 +53,10 @@ export default class App extends React.Component {
                   {"init <name> --starter <template>"}
                 </Text>
               </View>
+              <Subtitle
+                text={`, where name is the name of your application and template is the name of the starter to use.`}
+                style={styles.caption}
+              />
             </View>
           </View>
           <View style={styles.section}>
@@ -56,6 +82,23 @@ export default class App extends React.Component {
                 <DataTableCell text={"Lists possible starters"} />
                 <DataTableCell text={""} />
               </DataTableRow>
+            </DataTable>
+          </View>
+          <View style={styles.section}>
+            <Text style={[styles.h2]}>{"Table of starters"}</Text>
+            <DataTable>
+              <DataTableRow>
+                <DataTableCell text={"Long Name"} borderRight />
+                <DataTableCell text={"Short Name"} />
+                <DataTableCell text={"Platforms"} />
+              </DataTableRow>
+              {options.map(platform => (
+                <DataTableRow>
+                  <DataTableCell text={platform.longName} borderRight />
+                  <DataTableCell text={platform.shortName} />
+                  <DataTableCell text={platform.platforms} />
+                </DataTableRow>
+              ))}
             </DataTable>
           </View>
         </View>
@@ -112,14 +155,16 @@ const styles = StyleSheet.create({
   wrappingText: {
     flexDirection: "row",
     flexWrap: "wrap",
-    alignItems: "center"
+    alignItems: "center",
+    display: "inline"
   },
   codeInline: {
     backgroundColor: "black",
     padding: 4,
     borderRadius: 4,
     marginLeft: 4,
-    marginRight: 4
+    marginRight: 4,
+    display: "inline"
   },
   codeInlineText: {
     color: "#2196F3"
