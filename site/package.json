@@ -4,7 +4,7 @@
   "description": "Doc site for react-native-infinity",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode production && cp -R ./static ./dist && mkdir -p /dist/node_modules/react-native-vector-icons/Fonts && cp -r ./node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf ./dist/node_modules/react-native-vector-icons/Fonts/",
+    "build": "webpack --mode production && cp -R ./static ./dist",
     "start": "webpack-dev-server --config ./webpack.config.js --mode development",
     "deploy-docs": "gh-pages -d gh",
     "test": "echo \"Error: no test specified\" && exit 1"
