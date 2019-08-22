@@ -63,10 +63,23 @@ export default class App extends React.Component {
             <Text style={[styles.h2]}>{"Table of Commands"}</Text>
             <DataTable>
               <DataTableRow>
-                <DataTableCell text={"Command"} borderRight />
-                <DataTableCell text={"Alias"} />
-                <DataTableCell text={"Description"} />
-                <DataTableCell text={"Options "} />
+                <DataTableCell
+                  text={"Command"}
+                  borderRight
+                  textStyle={{ fontWeight: "bold" }}
+                />
+                <DataTableCell
+                  text={"Alias"}
+                  textStyle={{ fontWeight: "bold" }}
+                />
+                <DataTableCell
+                  text={"Description"}
+                  textStyle={{ fontWeight: "bold" }}
+                />
+                <DataTableCell
+                  text={"Options "}
+                  textStyle={{ fontWeight: "bold" }}
+                />
               </DataTableRow>
               <DataTableRow>
                 <DataTableCell text={"init <name>"} borderRight />
@@ -88,9 +101,19 @@ export default class App extends React.Component {
             <Text style={[styles.h2]}>{"Table of starters"}</Text>
             <DataTable>
               <DataTableRow>
-                <DataTableCell text={"Long Name"} borderRight />
-                <DataTableCell text={"Short Name"} />
-                <DataTableCell text={"Platforms"} />
+                <DataTableCell
+                  text={"Long Name"}
+                  borderRight
+                  textStyle={{ fontWeight: "bold" }}
+                />
+                <DataTableCell
+                  text={"Short Name"}
+                  textStyle={{ fontWeight: "bold" }}
+                />
+                <DataTableCell
+                  text={"Platforms"}
+                  textStyle={{ fontWeight: "bold" }}
+                />
               </DataTableRow>
               {options.map(platform => (
                 <DataTableRow>
