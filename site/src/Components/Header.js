@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet } from "react-native";
-import { Appbar, Anchor } from "material-bread";
+import { Appbar, Anchor, Ripple } from "material-bread";
 import HeaderLink from "./HeaderLink";
 import { Link } from "react-router-dom";
 import MCIconButton from "./MCIconButton";
@@ -50,7 +50,9 @@ export default class Header extends React.Component {
             url="https://github.com/codypearce/react-native-infinity"
             style={{ textDecoration: "none", color: "white" }}
           >
-            <MCIconButton name="github-circle" color={"white"} size={30} />
+            <Ripple>
+              <img src="/static/images/github.svg" style={{ height: 30 }} />
+            </Ripple>
           </Anchor>
         ]}
       />
