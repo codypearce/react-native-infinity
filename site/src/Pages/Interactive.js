@@ -163,8 +163,9 @@ const styles = StyleSheet.create({
     overflowY: "auto"
   },
   content: {
+    width: "100%",
     maxWidth: 972,
-    marginLeft: "10%",
+    marginLeft: "auto",
     marginRight: "auto",
     marginTop: 60,
     marginBottom: 60,
