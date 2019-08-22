@@ -24,7 +24,7 @@ export default class Header extends React.Component {
         style={{ backgroundColor: "transparent", boxShadow: "none" }}
         title={
           <Link
-            to={process.env.PUBLIC_URL + "/"}
+            to={"/"}
             style={{
               textDecoration: "none",
               color: "white",
@@ -38,12 +38,12 @@ export default class Header extends React.Component {
         actionItems={[
           <HeaderLink
             text={"Interactive"}
-            to={process.env.PUBLIC_URL + "/interactive"}
+            to={"/interactive"}
             buttonProps={{ textColor: "white" }}
           />,
           <HeaderLink
             text={"CLI"}
-            to={process.env.PUBLIC_URL + "/cli"}
+            to={"/cli"}
             buttonProps={{ textColor: "white" }}
           />,
           <Anchor
