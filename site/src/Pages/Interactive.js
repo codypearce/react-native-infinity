@@ -42,7 +42,7 @@ export default class App extends React.Component {
 
   buildStartLong(newPlatforms) {
     let starterLong = ``;
-    console.log(newPlatforms);
+
     if (newPlatforms[0]) starterLong = "Android, iOS";
     if (newPlatforms[1])
       starterLong += starterLong.length > 0 ? ", Web" : "Web";
@@ -57,6 +57,7 @@ export default class App extends React.Component {
 
   render() {
     const { platforms, starterLong, starter } = this.state;
+    const { pageWidth } = this.props;
 
     return (
       <View style={styles.space}>
@@ -94,7 +95,13 @@ export default class App extends React.Component {
             />
           </View>
           <View style={styles.section}>
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                flexWrap: "wrap"
+              }}
+            >
               <Text
                 style={[
                   styles.h2,
@@ -121,18 +128,25 @@ export default class App extends React.Component {
               <Subtitle text={starterLong} style={{ marginLeft: 8 }} />
             </View>
 
-            <View style={styles.row}>
+            <View
+              style={[
+                styles.row,
+                { justifyContent: pageWidth < 370 ? "center" : "flex-start" }
+              ]}
+            >
               <PlatformButton
                 text="Mobile"
                 platform="m"
                 handlePlatform={this.handlePlatform}
                 active={platforms.find(item => item == "m")}
+                pageWidth={pageWidth}
               />
               <PlatformButton
                 text="Web"
                 platform="w"
                 handlePlatform={this.handlePlatform}
                 active={platforms.find(item => item == "w")}
+                pageWidth={pageWidth}
               />
               <PlatformButton
                 text="Electron"
@@ -140,6 +154,7 @@ export default class App extends React.Component {
                 handlePlatform={this.handlePlatform}
                 active={platforms.find(item => item == "e")}
                 endButton
+                pageWidth={pageWidth}
               />
             </View>
           </View>
@@ -148,6 +163,7 @@ export default class App extends React.Component {
             <CLICard
               appName={this.state.appName}
               starter={this.state.starter}
+              pageWidth={pageWidth}
             />
           </View>
         </View>
@@ -176,6 +192,7 @@ const styles = StyleSheet.create({
 
   row: {
     flexDirection: "row",
+    flexWrap: "wrap",
     marginTop: 16
   },
   title: {

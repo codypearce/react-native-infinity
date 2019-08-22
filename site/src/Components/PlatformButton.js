@@ -5,7 +5,7 @@ import { Card, Button } from "material-bread";
 
 export default class PlatformButton extends React.Component {
   render() {
-    const { text, platform, active, endButton } = this.props;
+    const { text, platform, active, endButton, pageWidth } = this.props;
 
     return (
       <Button
@@ -16,7 +16,8 @@ export default class PlatformButton extends React.Component {
           width: 150,
           flexDirection: "column",
           opacity: active ? 1 : 0.7,
-          marginRight: endButton ? 0 : 8
+          marginRight: endButton || pageWidth < 370 ? 0 : 8,
+          marginBottom: 8
         }}
         onPress={() => this.props.handlePlatform(platform)}
       />

@@ -3,14 +3,16 @@ import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import { Button, Subtitle } from "material-bread";
 import HeaderLink from "../Components/HeaderLink";
-import EStyleSheet from "react-native-extended-stylesheet";
 
 export default class App extends React.Component {
   render() {
+    const { pageWidth } = this.props;
     return (
       <View style={styles.space}>
         <View style={styles.content}>
-          <Text style={styles.title}>REACT NATIVE INFINITY</Text>
+          <Text style={[styles.title, { fontSize: pageWidth < 600 ? 30 : 58 }]}>
+            REACT NATIVE INFINITY
+          </Text>
           <Subtitle
             text="A React Native Starter For All Platforms"
             style={styles.caption}
@@ -39,7 +41,7 @@ export default class App extends React.Component {
   }
 }
 
-const styles = EStyleSheet.create({
+const styles = StyleSheet.create({
   space: {
     height: "100vh",
     width: "100vw",
@@ -67,10 +69,5 @@ const styles = EStyleSheet.create({
     color: "rgba(255,255,255,.85)",
     fontSize: 20,
     textAlign: "center"
-  },
-  "@media (max-width: 400)": {
-    title: {
-      fontSize: 30
-    }
   }
 });

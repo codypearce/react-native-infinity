@@ -26,7 +26,7 @@ export default class AppRouter extends React.Component {
         <div>
           <Header />
           <View
-            style={{ height: "calc(100vh - 56px)", paddingTop: 56 }}
+            style={{ height: "100vh", paddingTop: 56 }}
             onLayout={this.handleLayout}
           >
             <Route

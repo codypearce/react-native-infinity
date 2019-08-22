@@ -23,7 +23,7 @@ export default class CLICard extends React.Component {
   };
 
   renderContent() {
-    const { appName, starter } = this.props;
+    const { appName, starter, pageWidth } = this.props;
     const { copySuccess } = this.state;
     return (
       <Fragment>
@@ -34,7 +34,13 @@ export default class CLICard extends React.Component {
           text={copySuccess ? "Copied" : "Copy"}
           type="flat"
           color={"#D81B60"}
-          style={styles.copyButton}
+          style={[
+            styles.copyButton,
+            {
+              position: pageWidth < 570 ? "relative" : "absolute",
+              marginTop: pageWidth < 570 ? 8 : 0
+            }
+          ]}
           dense
           onPress={this.copyToClipboard}
         />
@@ -58,13 +64,16 @@ export default class CLICard extends React.Component {
     );
   };
   render() {
-    const { appName, starter } = this.props;
+    const { appName, starter, pageWidth } = this.props;
     const hasError = appName.length < 1 || starter.length < 1;
     return (
       <Card
         style={[
           styles.cliCard,
-          { backgroundColor: hasError ? "#B71C1C" : "#212121" }
+
+          {
+            backgroundColor: hasError ? "#B71C1C" : "#212121"
+          }
         ]}
       >
         {hasError ? this.renderError() : this.renderContent()}
