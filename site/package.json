@@ -4,7 +4,7 @@
   "description": "Doc site for react-native-infinity",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode production && cp -R ./static ./dist",
+    "build": "webpack --mode production && cp -R ./static ./dist && mv ./dist/static/_redirects ./dist",
     "start": "webpack-dev-server --config ./webpack.config.js --mode development",
     "deploy-docs": "gh-pages -d gh",
     "test": "echo \"Error: no test specified\" && exit 1"
