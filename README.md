@@ -25,3 +25,14 @@ npx react-native-infinity init AwesomeProject --starter mw
 
 You can see list of templates and platforms below
 
+## Templates 
+
+| Long Name         | Short Name | Platforms                |
+|-------------------|------------|--------------------------|
+| mobile            | m          | Android iOS              |
+| mobileWeb         | mw         | Android iOS Web          |
+| mobileWebElectron | mwe        | Android iOS Web Electron |
+| mobileElectron    | me         | Android iOS Electron     |
+| web               | w          | Web                      |
+| webElectron       | we         | Web Electron             |
+| electron          | e          | Electron                 |
