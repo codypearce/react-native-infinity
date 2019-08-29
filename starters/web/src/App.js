@@ -1,11 +1,10 @@
-import React, { Component } from "react";
-import Router from "./Router";
-import "./styles/global.css";
+// component.jsx
+import React from "react";
+import ReactDOM from "react-dom";
+import { Text } from "react-native";
 
-class App extends Component {
+export default class App extends React.Component {
   render() {
-    return <Router />;
+    return <Text>Hello world</Text>;
   }
 }
-
-export default App;
