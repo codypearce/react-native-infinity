@@ -7,11 +7,10 @@
     "electron": "electron ./src/main.js",
     "start": "npm run test && npm run build"
   },
-  "author": "Cody",
+  "author": "You",
   "license": "MIT",
   "dependencies": {
     "@babel/runtime": "^7.4.3",
-    "material-bread": "0.1.6",
     "warning": "^4.0.3"
   },
   "peerDependencies": {
