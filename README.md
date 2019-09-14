@@ -20,9 +20,9 @@ You can use the [interactive](https://www.reactnativeinfinity.com/) tool in the 
       
 
 
-## CLI
+# CLI
 
-### Installation 
+## Installation 
 
 You can install the project globally, but the preferred method is to simply use the`npx` without installing anything.
 
@@ -30,7 +30,7 @@ Install globally: `npm install react-native-infinity -g`
 
 Using `npx`: `npx react-native-infinity <command>`
 
-### `init`
+## `init`
 
 `init` is used as follows: `init <name> --starter <platforms>` where <name> is the name of your application and <platforms> indicates which platforms should be supported.
 
@@ -41,7 +41,7 @@ npx react-native-infinity init AwesomeProject --starter mw
 ```
 `mw` is short-hand keyword to indicate you want to build a project that supports Mobile and Web. Platform keywords can be found by running the `list` command and are displayed below.
 
-### `list`
+## `list`
 
 `npx react-native-infinity list` lists all supported platforms with the name you pass into `--starter`
 
@@ -56,13 +56,13 @@ npx react-native-infinity init AwesomeProject --starter mw
 | electron          | e          | Electron                 |
 
 
-## Starter
+# Starter
 This starter contains a bare bones configuration for rendering on each platform.
 
-### Structure
+## Structure
 React Native separates application code into `src` and platform configuration into `android` and `ios`. React Native Infinity extends this idea to more platforms. All application code stil lives in `src` while each platform `ios`, `android`, `web`, `electron` has it's own folder that contains configurations, including `webpack` config for each platform. Below are commands that run
 
-### Web
+## Web
 React Native on the web is supported by [react-native-web](https://github.com/necolas/react-native-web), please check the documentation to learn more.
 
 ```
@@ -84,7 +84,7 @@ npm run build-web
 ```
 Uses `./web/webpack.config` to build a production web build to `./web/dist`.
 
-### Electron
+## Electron
 Electron with React requires two commands to run and uses [react-native-web](https://github.com/necolas/react-native-web)
 
 ```
@@ -102,13 +102,13 @@ HTML Entry: `./electron/index.html`
 Entry File is `./electron/renderer.js`
 
 
-### Android
+## Android
 ```
 npm run android
 ```
 Simply runs `react-native run-android`, read the React Native docs for more information
 
-### iOS
+## iOS
 ```
 npm run ios
 ```
