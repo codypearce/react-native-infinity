@@ -13,7 +13,11 @@ You can use the [interactive](https://www.reactnativeinfinity.com/) tool in the 
   - [`list`](#list)
 - [Starter](#starter)
   - [Structure](#structure)
-  - [Commands](#commands)
+  - [Web](#web)
+  - [Electron](#electron)
+  - [Android](#android)
+  - [ios](#ios)
+      
 
 
 ## CLI
@@ -58,10 +62,16 @@ This starter contains a bare bones configuration for rendering on each platform.
 ### Structure
 React Native separates application code into `src` and platform configuration into `android` and `ios`. React Native Infinity extends this idea to more platforms. All application code stil lives in `src` while each platform `ios`, `android`, `web`, `electron` has it's own folder that contains configurations, including `webpack` config for each platform. Below are commands that run
 
-### Commands
+### Web
+React Native on the web is supported by [react-native-web](https://github.com/necolas/react-native-web), please check the documentation to learn more.
 
-#### `npm run web`
-Uses `./web/webpack.config.js` to render `./web/index.html`. Config sets up an alias for `react-native` to `react-native-web`.
+```
+npm run web
+```
+
+Config: `./web/webpack.config.js`. Config sets up an alias for `react-native` to `react-native-web`.
+
+HTML Entry: `./web/index.html`. 
 
 Entry file is `./web/index.js`.
 
@@ -69,23 +79,33 @@ Runs on `localhost:8080`.
 
 
 
-#### `npm run build-web`
+```
+npm run build-web
+```
 Uses `./web/webpack.config` to build a production web build to `./web/dist`.
 
-#### `npm run electron` and `npm run server`
-Electron with React requires two commands to run:
+### Electron
+Electron with React requires two commands to run and uses [react-native-web](https://github.com/necolas/react-native-web)
 
-`npm run electron` sets up electron using config `./electron/main.js`
+```
+npm run electron
+``` 
+Starts the Electron window using config `./electron/main.js` and 
 
-`npm run server` sets up react and renders `./electron/index.html` using config `./electron/webpack.config.js` which aliases `react-native-web` and adds babel-transforms.
+```
+npm run server
+``` 
+Runs react in the electron window using config `./electron/webpack.config.js`.
+
+HTML Entry: `./electron/index.html`
 
 Entry File is `./electron/renderer.js`
 
 
-#### `npm run ios`
+### `npm run ios`
 Runs `react-native run-ios`
 
-#### `npm run android`
+### `npm run android`
 Runs `react-native run-android`
 
 
