@@ -1,6 +1,6 @@
 {
   "name": "react-native-infinity",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "see-npm-package": "npm pack && tar -xvzf *.tgz && rm -rf package *.tgz"
