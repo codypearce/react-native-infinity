@@ -102,11 +102,17 @@ HTML Entry: `./electron/index.html`
 Entry File is `./electron/renderer.js`
 
 
-### `npm run ios`
-Runs `react-native run-ios`
+### Android
+```
+npm run android
+```
+Simply runs `react-native run-android`, read the React Native docs for more information
 
-### `npm run android`
-Runs `react-native run-android`
+### iOS
+```
+npm run ios
+```
+Simply runs `react-native run-ios`, read the React Native docs for more information
 
 
 
