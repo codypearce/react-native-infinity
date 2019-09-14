@@ -9,6 +9,12 @@ function platformCommand(platform) {
 
     console.log("  ", ios + npmCommand("ios"));
     console.log("  ", android + npmCommand("android"));
+  } else if (platform == "Electron") {
+    const platformName = chalk.cyan(
+      fixedWidthCell(10, capitalize(platform + ":"))
+    );
+    console.log("  ", platformName + npmCommand(platform));
+    console.log("  ", fixedWidthCell(10, "") + npmCommand("server"));
   } else {
     const platformName = chalk.cyan(
       fixedWidthCell(10, capitalize(platform + ":"))

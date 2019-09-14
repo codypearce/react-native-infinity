@@ -48,7 +48,7 @@ function handleFound(starter, platforms, name) {
   console.log(chalk.cyan("Get started:"));
   console.log(chalk.cyan("1."), chalk.blue.bold(`cd ${name}`));
   console.log(chalk.cyan("2."), chalk.blue.bold("npm i"));
-  const platformArr = starter.platforms.split(" ");
+  const platformArr = platforms.split(" ");
 
   if (platformArr.find(item => item == "Mobile")) {
     console.log(
