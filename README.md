@@ -1,5 +1,5 @@
 # React Native Inifinity
-[![Netlify Status](https://api.netlify.com/api/v1/badges/671f47a2-1863-4a7e-aaea-d07e8907d816/deploy-status)](https://app.netlify.com/sites/silly-sinoussi-9c57cb/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/671f47a2-1863-4a7e-aaea-d07e8907d816/deploy-status)](https://app.netlify.com/sites/silly-sinoussi-9c57cb/deploys) ![npm](https://img.shields.io/npm/v/react-native-infinity)
 
 React Native Inifinity is a CLI that generates React Native projects for all platforms your app needs to support.
 
