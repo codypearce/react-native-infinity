@@ -14,6 +14,7 @@ function handleFound(starter, platforms, name) {
     name
   );
 
+  // Copy Platform logic
   const arr = platforms.split(" ");
   arr.forEach(platform => {
     const lowerPlatform = platform.toLowerCase();
