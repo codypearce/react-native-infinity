@@ -9,8 +9,8 @@ You can use the [interactive](https://www.reactnativeinfinity.com/) tool in the 
 
 - [CLI](#cli)
   - [Installation](#installation)
-  - [Usage](#usage)
-  - [Platforms](#platforms)
+  - [`init`](#init)
+  - [`list`](#list)
 - [Starter](#starter)
   - [Commands](#commands)
 
@@ -22,9 +22,10 @@ You can use the [interactive](https://www.reactnativeinfinity.com/) tool in the 
 You can install the project globally, but the preferred method is to simply use the`npx` without installing anything.
 
 Install globally: `npm install react-native-infinity -g`
+
 Using `npx`: `npx react-native-infinity <command>`
 
-### init
+### `init`
 
 `init` is used as follows: `init <name> --starter <platforms>` where <name> is the name of your application and <platforms> indicates which platforms should be supported.
 
@@ -35,7 +36,7 @@ npx react-native-infinity init AwesomeProject --starter mw
 ```
 `mw` is short-hand keyword to indicate you want to build a project that supports Mobile and Web. Platform keywords can be found by running the `list` command and are displayed below.
 
-#### list 
+### `list`
 
 `npx react-native-infinity list` lists all supported platforms with the name you pass into `--starter`
 
