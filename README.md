@@ -12,6 +12,7 @@ You can use the [interactive](https://www.reactnativeinfinity.com/) tool in the 
   - [`init`](#init)
   - [`list`](#list)
 - [Starter](#starter)
+  - [Structure](#structure)
   - [Commands](#commands)
 
 
@@ -54,5 +55,38 @@ npx react-native-infinity init AwesomeProject --starter mw
 ## Starter
 This starter contains a bare bones configuration for rendering on each platform.
 
+### Structure
+React Native separates application code into `src` and platform configuration into `android` and `ios`. React Native Infinity extends this idea to more platforms. All application code stil lives in `src` while each platform `ios`, `android`, `web`, `electron` has it's own folder that contains configurations, including `webpack` config for each platform. Below are commands that run
+
 ### Commands
+
+#### `npm run web`
+Uses `./web/webpack.config.js` to render `./web/index.html`. Config sets up an alias for `react-native` to `react-native-web`.
+
+Entry file is `./web/index.js`.
+
+Runs on `localhost:8080`.
+
+
+
+#### `npm run build-web`
+Uses `./web/webpack.config` to build a production web build to `./web/dist`.
+
+#### `npm run electron` and `npm run server`
+Electron with React requires two commands to run:
+
+`npm run electron` sets up electron using config `./electron/main.js`
+
+`npm run server` sets up react and renders `./electron/index.html` using config `./electron/webpack.config.js` which aliases `react-native-web` and adds babel-transforms.
+
+Entry File is `./electron/renderer.js`
+
+
+#### `npm run ios`
+Runs `react-native run-ios`
+
+#### `npm run android`
+Runs `react-native run-android`
+
+
 
