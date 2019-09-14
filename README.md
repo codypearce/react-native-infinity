@@ -5,6 +5,13 @@ React Native Inifinity is a CLI that generates React Native projects for all pla
 
 You can use the [interactive](https://www.reactnativeinfinity.com/) tool in the docs to generate the CLI command you need, or follow the API docs to create your own command. 
 
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Templates](#templates)
+- [Starter](#starter)
+  - [Commands](#commands)
 
 ## Installation 
 
@@ -24,9 +31,8 @@ For example to generate a project with name AwesomeProject that targets Android,
 npx react-native-infinity init AwesomeProject --starter mw
 ```
 
-You can see list of templates and platforms below
 
-## Templates 
+### Templates 
 
 | Long Name         | Short Name | Platforms                |
 |-------------------|------------|--------------------------|
@@ -37,3 +43,8 @@ You can see list of templates and platforms below
 | web               | w          | Web                      |
 | webElectron       | we         | Web Electron             |
 | electron          | e          | Electron                 |
+
+## Starter
+
+### Commands 
+
