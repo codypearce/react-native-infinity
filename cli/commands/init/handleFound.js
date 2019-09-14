@@ -40,12 +40,6 @@ function handleFound(starter, platforms, name) {
       );
     }
   });
-  console.log(arr);
-
-  // const copy = fs.copySync(
-  //   path.resolve(__dirname, `../../../starters/${starter.starter}/.`),
-  //   name
-  // );
 
   newLine(1);
 
