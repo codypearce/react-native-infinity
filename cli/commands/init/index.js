@@ -3,9 +3,10 @@ const handleFound = require("./handleFound");
 const handleNotFound = require("./handleNotFound");
 
 function init(name, options) {
-  const starter = findStarter(options.starter);
+  const { starter, platforms } = findStarter(options.starter);
+
   if (starter) {
-    handleFound(starter, name);
+    handleFound(starter, platforms, name);
   } else {
     handleNotFound(options.starter);
   }
