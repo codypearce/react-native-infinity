@@ -34,6 +34,16 @@ module.exports = function addPlatform(platform) {
   try {
     currentPackageJSON = fs.readFileSync(pathToCurrent);
   } catch (err) {
+    // Remove Created Folders
+    if (starter == "mobile") {
+      console.log(chalk.cyan("Removing iOS"));
+      fs.removeSync(path.resolve(`./ios/`));
+      console.log(chalk.cyan("Removing Android"));
+      fs.removeSync(path.resolve(`./android/`));
+    } else {
+      console.log(chalk.cyan(`Removing ${starter}`));
+      fs.removeSync(path.resolve(`./${starter}/`));
+    }
     console.log(
       `${chalk.red.bold(
         "ERROR"
@@ -41,7 +51,6 @@ module.exports = function addPlatform(platform) {
     );
 
     newLine(1);
-    // Remove Created Folders
 
     return;
   }
