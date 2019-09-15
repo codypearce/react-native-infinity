@@ -5,6 +5,7 @@ const newLine = require("../../console/newLine");
 const horizontalLine = require("../../console/horizontalLine");
 const packagename = require("../../console/packageName");
 const platformCommand = require("../../console/platformCommand");
+const createPackageJson = require("./createPackageJson");
 
 function handleFound(starter, platforms, name) {
   // Copy Core logic
@@ -40,6 +41,11 @@ function handleFound(starter, platforms, name) {
       );
     }
   });
+
+  newLine(1);
+  console.log(chalk.cyan(`Merging Package.json`));
+  const packageJson = createPackageJson(arr);
+  const copyPackageJson = fs.writeFileSync(`${name}/package.json`, packageJson);
 
   newLine(1);
 
