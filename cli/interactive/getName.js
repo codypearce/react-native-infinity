@@ -1,5 +1,7 @@
 const { prompt } = require("enquirer");
+const chalk = require("chalk");
 const init = require("../commands/init/index");
+const newLine = require("../console/newLine");
 const getPlatforms = require("./getPlatforms");
 
 module.exports = function getName(options) {
@@ -10,7 +12,12 @@ module.exports = function getName(options) {
     initial: "AwesomeProject"
   })
     .then(answers => {
-      if (!options.starter) {
+      if (answers.projectName && answers.projectName.trim().length < 1) {
+        newLine(1);
+        console.log(chalk.red.bold("Name cannot be blank or just spaces."));
+        newLine(1);
+        getName(options);
+      } else if (!options.starter) {
         getPlatforms(answers.projectName);
       } else {
         init(answers.projectName, options);
