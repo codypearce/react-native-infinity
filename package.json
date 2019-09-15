@@ -13,6 +13,7 @@
     "automerge": "^0.12.1",
     "chalk": "^2.4.2",
     "commander": "^2.20.0",
+    "enquirer": "^2.3.1",
     "fs-extra": "^8.1.0",
     "merge-package-json": "^0.1.3"
   },
