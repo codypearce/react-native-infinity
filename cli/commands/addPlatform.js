@@ -6,6 +6,11 @@ const chalk = require("chalk");
 module.exports = function addPlatform(platform) {
   const { starter, platforms } = findStarter(platform);
 
+  if (!starter) {
+    getPlatform();
+    return;
+  }
+
   if (starter == "mobile") {
     console.log(chalk.cyan("Setting up iOS"));
     fs.copySync(
@@ -47,7 +52,7 @@ module.exports = function addPlatform(platform) {
     console.log(
       `${chalk.red.bold(
         "ERROR"
-      )}: Cannnot find your project's package.json, please go to the root of your poject and try again.`
+      )}: Cannnot find your project's package.json, you must be at the root of your current RN project.`
     );
 
     newLine(1);
@@ -105,3 +110,4 @@ const newLine = require("../console/newLine");
 const horizontalLine = require("../console/horizontalLine");
 const packagename = require("../console/packageName");
 const platformCommand = require("../console/platformCommand");
+const getPlatform = require("../interactive/getPlatform");
