@@ -1,12 +1,12 @@
 const fs = require("fs-extra");
 const path = require("path");
 const chalk = require("chalk");
-const newLine = require("../../console/newLine");
-const horizontalLine = require("../../console/horizontalLine");
+const newLine = require("../console/newLine");
+const horizontalLine = require("../console/horizontalLine");
 const merge = require("merge-package-json");
 
 module.exports = function(platforms) {
-  const directory = "../../../starters/packagejson/";
+  const directory = "../../starters/packagejson/";
   const core = path.resolve(__dirname, `${directory}/core.json`);
   const dst = fs.readFileSync(core);
   let newPackage = dst;
