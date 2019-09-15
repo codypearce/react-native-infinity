@@ -18,9 +18,9 @@ module.exports = function getName(options) {
         newLine(1);
         getName(options);
       } else if (!options.starter) {
-        getPlatforms(answers.projectName);
+        getPlatforms(answers.projectName.trim());
       } else {
-        init(answers.projectName, options);
+        init(answers.projectName.trim(), options);
       }
     })
     .catch(error => {
