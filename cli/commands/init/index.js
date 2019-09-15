@@ -8,7 +8,7 @@ function init(name, options) {
   if (starter) {
     handleFound(starter, platforms, name);
   } else {
-    handleNotFound(options.starter);
+    handleNotFound(name, options.starter);
   }
 }
 

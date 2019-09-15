@@ -4,6 +4,7 @@ const init = require("../commands/init/index");
 const newLine = require("../console/newLine");
 
 module.exports = function getPlatforms(name) {
+  newLine(1);
   prompt([
     {
       type: "multiselect",
@@ -13,26 +14,30 @@ module.exports = function getPlatforms(name) {
       choices: [
         { name: "Mobile (Android, iOS)", value: "m" },
         { name: "Web", value: "w" },
-        { name: "Electron (MacOS, Windows, Linux)", value: "e" },
-        ""
+        { name: "Electron (MacOS, Windows, Linux)", value: "e" }
       ],
       result(value) {
         return this.map(value);
       }
     }
-  ]).then(answers => {
-    const platformArr = Object.values(answers.platforms);
-    if (platformArr && platformArr.length < 1) {
-      newLine(2);
-      console.log(
-        chalk.red.bold("You must choose at least one platform to support")
-      );
+  ])
+    .then(answers => {
+      const platformArr = Object.values(answers.platforms);
+      if (platformArr && platformArr.length < 1) {
+        newLine(2);
+        console.log(
+          chalk.red.bold(
+            "You must choose at least one platform to support, click the spacebar to select a platform."
+          )
+        );
 
-      newLine(2);
-      getPlatforms(name);
+        getPlatforms(name);
+        return;
+      }
+      const platformString = platformArr.join("");
+      init(name, { starter: platformString });
+    })
+    .catch(error => {
       return;
-    }
-    const platformString = platformArr.join("");
-    init(name, { starter: platformString });
-  });
+    });
 };

@@ -8,11 +8,15 @@ module.exports = function getName(options) {
     name: "projectName",
     message: "Name of the Project:",
     initial: "AwesomeProject"
-  }).then(answers => {
-    if (!options.starter) {
-      getPlatforms(answers.projectName);
-    } else {
-      init(answers.projectName, options);
-    }
-  });
+  })
+    .then(answers => {
+      if (!options.starter) {
+        getPlatforms(answers.projectName);
+      } else {
+        init(answers.projectName, options);
+      }
+    })
+    .catch(error => {
+      return;
+    });
 };
