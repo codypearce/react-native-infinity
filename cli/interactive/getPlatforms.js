@@ -1,8 +1,3 @@
-const { prompt } = require("enquirer");
-const chalk = require("chalk");
-const init = require("../commands/init/index");
-const newLine = require("../console/newLine");
-
 module.exports = function getPlatforms(name) {
   newLine(1);
   prompt([
@@ -33,11 +28,19 @@ module.exports = function getPlatforms(name) {
 
         getPlatforms(name);
         return;
+      } else {
+        const platformString = platformArr.join("");
+
+        init(name, { starter: platformString });
       }
-      const platformString = platformArr.join("");
-      init(name, { starter: platformString });
     })
     .catch(error => {
       return;
     });
 };
+
+// Avoid Circular Dependency
+const { prompt } = require("enquirer");
+const chalk = require("chalk");
+const init = require("../commands/init/index");
+const newLine = require("../console/newLine");

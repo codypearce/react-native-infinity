@@ -2,6 +2,7 @@ const starters = require("../../data/starters");
 const convertShorthand = require("../../utils/convertShorthand");
 
 module.exports = function(starter) {
+  console.log("called");
   const longhandIndex = starters.longhand.findIndex(item => item == starter);
   if (longhandIndex > -1) {
     const platforms = starters.longhandSeparated[longhandIndex];
