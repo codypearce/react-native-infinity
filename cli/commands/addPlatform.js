@@ -82,12 +82,6 @@ module.exports = function addPlatform(platform) {
   console.log(chalk.cyan("Get started:"));
   console.log(chalk.cyan("1."), chalk.blue.bold("npm i"));
 
-  if (starter == "mobile") {
-    console.log(
-      chalk.cyan("2."),
-      chalk.blue.bold(`npx react-native-rename ${name}`)
-    );
-  }
   newLine(1);
   console.log(
     chalk.cyan(
