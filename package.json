@@ -2,7 +2,7 @@
   "name": "react-native-infinity",
   "version": "0.0.5",
   "scripts": {
-    "lint": "./node_modules/.bin/eslint --fix './cli/'",
+    "lint": "./node_modules/.bin/eslint './cli/'",
     "test": "echo \"Error: no test specified\" && exit 1",
     "see-npm-package": "npm pack && tar -xvzf *.tgz && rm -rf package *.tgz"
   },
@@ -24,6 +24,7 @@
     "eslint-config-prettier": "^3.6.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-prettier": "^3.0.1",
+    "husky": "^3.0.5",
     "prettier": "^1.18.2"
   },
   "main": "./cli/index.js",
@@ -44,5 +45,10 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/codypearce/react-native-infinity/issues"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
   }
 }
