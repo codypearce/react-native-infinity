@@ -38,6 +38,10 @@ function list() {
     'This will create a new project that is set up to render to Mobile, Web, and Electron with the name AwesomeProject',
   );
   newLine(1);
+  console.log(
+    'You can also use the interactive CLI by not passing anything into init npx react-native-infinity init',
+  );
+  newLine(1);
 }
 
 module.exports = list;

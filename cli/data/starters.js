@@ -1,10 +1,5 @@
-const Combinatorics = require('js-combinatorics');
-
 const platforms = ['mobile', 'web', 'electron', 'macos'];
 const shortenedPlatforms = ['m', 'w', 'e', 'ma'];
-
-const longHandGenerated = Combinatorics.power(platforms);
-console.log(longHandGenerated);
 
 const longhandSeparated = [
   'Mobile',
