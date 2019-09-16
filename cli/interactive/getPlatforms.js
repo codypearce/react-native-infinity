@@ -10,6 +10,7 @@ module.exports = function getPlatforms(name) {
         { name: 'Mobile (Android, iOS)', value: 'm' },
         { name: 'Web', value: 'w' },
         { name: 'Electron (MacOS, Windows, Linux)', value: 'e' },
+        { name: 'MacOs (react-native-macos)', value: 'ma' },
       ],
       result(value) {
         return this.map(value);

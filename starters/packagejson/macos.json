@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "scripts": {
+    "macos-start": "node node_modules/react-native-macos/local-cli/cli.js start",
+    "macos": "react-native-macos run-macos"
+  },
+  "dependencies": {
+    "react-native-macos": "0.19.3"
+  },
+  "devDependencies": {
+    "babel-plugin-module-resolver": "^3.2.0"
+  }
+}
