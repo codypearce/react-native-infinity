@@ -6,8 +6,11 @@ const horizontalLine = require("../../console/horizontalLine");
 const packagename = require("../../console/packageName");
 const platformCommand = require("../../console/platformCommand");
 const createPackageJson = require("../../lib/createPackageJson");
+const handleFolderExists = require("../../lib/handleFolderExists");
 
 function handleFound(starter, platforms, name) {
+  if (handleFolderExists(`./${name}/`, name, [])) return;
+
   // Copy Core logic
   console.log(chalk.cyan("Setting up Core"));
   const copy = fs.copySync(

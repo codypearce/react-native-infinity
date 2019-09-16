@@ -3,6 +3,7 @@ const chalk = require("chalk");
 const init = require("../commands/init/index");
 const newLine = require("../console/newLine");
 const getPlatforms = require("./getPlatforms");
+const handleFolderExists = require("../lib/handleFolderExists");
 
 module.exports = function getName(options) {
   prompt({
@@ -12,6 +13,11 @@ module.exports = function getName(options) {
     initial: "AwesomeProject"
   })
     .then(answers => {
+      if (
+        handleFolderExists(`./${answers.projectName}/`, answers.projectName, [])
+      )
+        return;
+
       if (answers.projectName && answers.projectName.trim().length < 1) {
         newLine(1);
         console.log(chalk.red.bold("Name cannot be blank or just spaces."));
