@@ -11,23 +11,33 @@ module.exports = function addPlatform(platform) {
     return;
   }
 
+  let addedSoFar = [];
+
   if (starter == "mobile") {
     console.log(chalk.cyan("Setting up iOS"));
+
+    if (handleFolderExists("./ios/", "ios", addedSoFar)) return;
     fs.copySync(
       path.resolve(__dirname, `../../starters/platforms/ios/.`),
       `./ios/`
     );
+    addedSoFar.push("ios");
+
     console.log(chalk.cyan("Setting up Android"));
+    if (handleFolderExists("./android/", "android", addedSoFar)) return;
     fs.copySync(
       path.resolve(__dirname, `../../starters/platforms/android/.`),
       `./android/`
     );
+    addedSoFar.push("android");
   } else {
     console.log(chalk.cyan(`Setting up ${starter}`));
+    if (handleFolderExists(`./${starter}/`, starter, addedSoFar)) return;
     const copy = fs.copySync(
       path.resolve(__dirname, `../../starters/platforms/${starter}/.`),
       `${starter}/`
     );
+    addedSoFar.push(starter);
   }
 
   newLine(1);
@@ -40,15 +50,7 @@ module.exports = function addPlatform(platform) {
     currentPackageJSON = fs.readFileSync(pathToCurrent);
   } catch (err) {
     // Remove Created Folders
-    if (starter == "mobile") {
-      console.log(chalk.cyan("Removing iOS"));
-      fs.removeSync(path.resolve(`./ios/`));
-      console.log(chalk.cyan("Removing Android"));
-      fs.removeSync(path.resolve(`./android/`));
-    } else {
-      console.log(chalk.cyan(`Removing ${starter}`));
-      fs.removeSync(path.resolve(`./${starter}/`));
-    }
+    removePlatformFolder(platforms);
     console.log(
       `${chalk.red.bold(
         "ERROR"
@@ -111,3 +113,5 @@ const horizontalLine = require("../console/horizontalLine");
 const packagename = require("../console/packageName");
 const platformCommand = require("../console/platformCommand");
 const getPlatform = require("../interactive/getPlatform");
+const handleFolderExists = require("../lib/handleFolderExists");
+const removePlatformFolder = require("../lib/removePlatformFolder");
