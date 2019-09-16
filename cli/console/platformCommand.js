@@ -1,27 +1,27 @@
-const chalk = require("chalk");
-const fixedWidthCell = require("./fixedWidthCell");
-const capitalize = require("../utils/capitalize");
+const chalk = require('chalk');
+const fixedWidthCell = require('./fixedWidthCell');
+const capitalize = require('../utils/capitalize');
 
 function platformCommand(platform) {
   platform = platform.toLowerCase();
 
-  if (platform == "mobile") {
-    const ios = chalk.cyan(fixedWidthCell(10, "iOS:"));
-    const android = chalk.cyan(fixedWidthCell(10, "Android:"));
+  if (platform == 'mobile') {
+    const ios = chalk.cyan(fixedWidthCell(10, 'iOS:'));
+    const android = chalk.cyan(fixedWidthCell(10, 'Android:'));
 
-    console.log("  ", ios + npmCommand("ios"));
-    console.log("  ", android + npmCommand("android"));
-  } else if (platform == "electron") {
+    console.log('  ', ios + npmCommand('ios'));
+    console.log('  ', android + npmCommand('android'));
+  } else if (platform == 'electron') {
     const platformName = chalk.cyan(
-      fixedWidthCell(10, capitalize(platform + ":"))
+      fixedWidthCell(10, capitalize(platform + ':')),
     );
-    console.log("  ", platformName + npmCommand(platform));
-    console.log("  ", fixedWidthCell(10, "") + npmCommand("server"));
+    console.log('  ', platformName + npmCommand(platform));
+    console.log('  ', fixedWidthCell(10, '') + npmCommand('server'));
   } else {
     const platformName = chalk.cyan(
-      fixedWidthCell(10, capitalize(platform + ":"))
+      fixedWidthCell(10, capitalize(platform + ':')),
     );
-    console.log("  ", platformName + npmCommand(platform));
+    console.log('  ', platformName + npmCommand(platform));
   }
 }
 

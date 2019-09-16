@@ -1,7 +1,7 @@
-const fs = require("fs-extra");
-const path = require("path");
-const merge = require("merge-package-json");
-const chalk = require("chalk");
+const fs = require('fs-extra');
+const path = require('path');
+const merge = require('merge-package-json');
+const chalk = require('chalk');
 
 module.exports = function addPlatform(platform) {
   const { starter, platforms } = findStarter(platform);
@@ -13,29 +13,29 @@ module.exports = function addPlatform(platform) {
 
   let addedSoFar = [];
 
-  if (starter == "mobile") {
-    console.log(chalk.cyan("Setting up iOS"));
+  if (starter == 'mobile') {
+    console.log(chalk.cyan('Setting up iOS'));
 
-    if (handleFolderExists("./ios/", "ios", addedSoFar)) return;
+    if (handleFolderExists('./ios/', 'ios', addedSoFar)) return;
     fs.copySync(
       path.resolve(__dirname, `../../starters/platforms/ios/.`),
-      `./ios/`
+      `./ios/`,
     );
-    addedSoFar.push("ios");
+    addedSoFar.push('ios');
 
-    console.log(chalk.cyan("Setting up Android"));
-    if (handleFolderExists("./android/", "android", addedSoFar)) return;
+    console.log(chalk.cyan('Setting up Android'));
+    if (handleFolderExists('./android/', 'android', addedSoFar)) return;
     fs.copySync(
       path.resolve(__dirname, `../../starters/platforms/android/.`),
-      `./android/`
+      `./android/`,
     );
-    addedSoFar.push("android");
+    addedSoFar.push('android');
   } else {
     console.log(chalk.cyan(`Setting up ${starter}`));
     if (handleFolderExists(`./${starter}/`, starter, addedSoFar)) return;
-    const copy = fs.copySync(
+    fs.copySync(
       path.resolve(__dirname, `../../starters/platforms/${starter}/.`),
-      `${starter}/`
+      `${starter}/`,
     );
     addedSoFar.push(starter);
   }
@@ -53,8 +53,8 @@ module.exports = function addPlatform(platform) {
     removePlatformFolder(platforms);
     console.log(
       `${chalk.red.bold(
-        "ERROR"
-      )}: Cannnot find your project's package.json, you must be at the root of your current RN project.`
+        'ERROR',
+      )}: Cannnot find your project's package.json, you must be at the root of your current RN project.`,
     );
 
     newLine(1);
@@ -62,7 +62,7 @@ module.exports = function addPlatform(platform) {
     return;
   }
   let newPackage = currentPackageJSON;
-  const directory = "../../starters/packagejson/";
+  const directory = '../../starters/packagejson/';
 
   const corePath = path.resolve(__dirname, `${directory}/core.json`);
   const coreJSON = fs.readFileSync(corePath);
@@ -70,27 +70,26 @@ module.exports = function addPlatform(platform) {
 
   const pathToPlatformJSON = path.resolve(
     __dirname,
-    `${directory}/${starter}.json`
+    `${directory}/${starter}.json`,
   );
   const platformJSON = fs.readFileSync(pathToPlatformJSON);
 
   newPackage = merge(newPackage, platformJSON);
-
-  const copyPackageJson = fs.writeFileSync(`./package.json`, newPackage);
+  fs.writeFileSync(`./package.json`, newPackage);
 
   newLine(1);
 
   packagename();
   horizontalLine(1);
 
-  console.log(chalk.cyan("Get started:"));
-  console.log(chalk.cyan("1."), chalk.blue.bold("npm i"));
+  console.log(chalk.cyan('Get started:'));
+  console.log(chalk.cyan('1.'), chalk.blue.bold('npm i'));
 
   newLine(1);
   console.log(
     chalk.cyan(
-      "Finally run the command for the platform(s) you'd like to render to:"
-    )
+      "Finally run the command for the platform(s) you'd like to render to:",
+    ),
   );
 
   platformCommand(starter);
@@ -98,18 +97,18 @@ module.exports = function addPlatform(platform) {
   newLine(1);
   horizontalLine(1);
   console.log(
-    "Please visit the documentation for more information: https://github.com/codypearce/react-native-infinity"
+    'Please visit the documentation for more information: https://github.com/codypearce/react-native-infinity',
   );
   horizontalLine(1);
   newLine(1);
 };
 
 // Avoid Circular Dependency
-const findStarter = require("../lib/findStarter");
-const newLine = require("../console/newLine");
-const horizontalLine = require("../console/horizontalLine");
-const packagename = require("../console/packageName");
-const platformCommand = require("../console/platformCommand");
-const getPlatform = require("../interactive/getPlatform");
-const handleFolderExists = require("../lib/handleFolderExists");
-const removePlatformFolder = require("../lib/removePlatformFolder");
+const findStarter = require('../lib/findStarter');
+const newLine = require('../console/newLine');
+const horizontalLine = require('../console/horizontalLine');
+const packagename = require('../console/packageName');
+const platformCommand = require('../console/platformCommand');
+const getPlatform = require('../interactive/getPlatform');
+const handleFolderExists = require('../lib/handleFolderExists');
+const removePlatformFolder = require('../lib/removePlatformFolder');

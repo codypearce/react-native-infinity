@@ -8,6 +8,6 @@ module.exports = function init(name, options) {
 };
 
 // Avoid Circular Dependency
-const findStarter = require("../../lib/findStarter");
-const handleFound = require("./handleFound");
-const handleNotFound = require("./handleNotFound");
+const findStarter = require('../../lib/findStarter');
+const handleFound = require('./handleFound');
+const handleNotFound = require('./handleNotFound');

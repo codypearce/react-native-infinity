@@ -1,5 +1,4 @@
-const starters = require("../data/starters");
-const convertShorthand = require("../utils/convertShorthand");
+const starters = require('../data/starters');
 
 module.exports = function(starter) {
   const longhandIndex = starters.longhand.findIndex(item => item == starter);
@@ -10,7 +9,7 @@ module.exports = function(starter) {
   }
 
   const shorthandIndex = starters.shorthand.findIndex(
-    item => item == starter.toLowerCase()
+    item => item == starter.toLowerCase(),
   );
 
   if (shorthandIndex > -1) {
