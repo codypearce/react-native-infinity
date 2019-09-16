@@ -12,8 +12,8 @@ module.exports = function addPlatform(platform) {
   }
 
   let addedSoFar = [];
-
-  if (starter == 'mobile') {
+  console.log(platforms);
+  if (starter == 'm') {
     console.log(chalk.cyan('Setting up iOS'));
 
     if (handleFolderExists('./ios/', 'ios', addedSoFar)) return;
@@ -31,13 +31,15 @@ module.exports = function addPlatform(platform) {
     );
     addedSoFar.push('android');
   } else {
-    console.log(chalk.cyan(`Setting up ${starter}`));
-    if (handleFolderExists(`./${starter}/`, starter, addedSoFar)) return;
+    const lowerPlatform = platforms.toLowerCase();
+    console.log(chalk.cyan(`Setting up ${platforms}`));
+    if (handleFolderExists(`./${lowerPlatform}/`, lowerPlatform, addedSoFar))
+      return;
     fs.copySync(
-      path.resolve(__dirname, `../../starters/platforms/${starter}/.`),
-      `${starter}/`,
+      path.resolve(__dirname, `../../starters/platforms/${lowerPlatform}/.`),
+      `${lowerPlatform}/`,
     );
-    addedSoFar.push(starter);
+    addedSoFar.push(lowerPlatform);
   }
 
   newLine(1);
@@ -70,7 +72,7 @@ module.exports = function addPlatform(platform) {
 
   const pathToPlatformJSON = path.resolve(
     __dirname,
-    `${directory}/${starter}.json`,
+    `${directory}/${platforms.toLowerCase()}.json`,
   );
   const platformJSON = fs.readFileSync(pathToPlatformJSON);
 
@@ -92,7 +94,7 @@ module.exports = function addPlatform(platform) {
     ),
   );
 
-  platformCommand(starter);
+  platformCommand(platforms);
 
   newLine(1);
   horizontalLine(1);

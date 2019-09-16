@@ -1,23 +1,11 @@
+const Combinatorics = require('js-combinatorics');
+
 const platforms = ['mobile', 'web', 'electron', 'macos'];
 const shortenedPlatforms = ['m', 'w', 'e', 'ma'];
 
-const longhand = [
-  'mobile',
-  'mobileWeb',
-  'mobileWebElectron',
-  'mobileElectron',
-  'mobileMacos',
-  'mobileWebMacos',
-  'mobileElectronMacos',
-  'mobileWebElectronMacos',
-  'web',
-  'webElectron',
-  'webMacos',
-  'webElectronMacos',
-  'electron',
-  'electronMacos',
-  'macos',
-];
+const longHandGenerated = Combinatorics.power(platforms);
+console.log(longHandGenerated);
+
 const longhandSeparated = [
   'Mobile',
   'Mobile Web',
@@ -56,7 +44,6 @@ const shorthand = [
 module.exports = {
   platforms,
   shortenedPlatforms,
-  longhand,
   shorthand,
   longhandSeparated,
 };

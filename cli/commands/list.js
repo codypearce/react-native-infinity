@@ -14,17 +14,16 @@ function list() {
   horizontalLine(1);
   newLine(1);
   console.log(
-    `${chalk.magenta(fixedWidthCell(20, 'Longform'))} ${chalk.blue(
-      fixedWidthCell(14, 'Shorthand'),
-    )} ${chalk.cyan(fixedWidthCell(19, 'Platforms'))} `,
+    `${chalk.blue(fixedWidthCell(14, 'Shorthand'))} ${chalk.cyan(
+      fixedWidthCell(19, 'Platforms'),
+    )} `,
   );
   newLine(1);
 
-  for (let i = 0; i < starters.longhand.length; i++) {
+  for (let i = 0; i < starters.shorthand.length; i++) {
     console.log(
-      chalk.magenta(fixedWidthCell(20, starters.longhand[i])),
       chalk.blue(fixedWidthCell(14, starters.shorthand[i])),
-      chalk.cyan(fixedWidthCell(20, starters.longhandSeparated[i])),
+      chalk.cyan(fixedWidthCell(28, starters.longhandSeparated[i])),
     );
   }
 
@@ -32,9 +31,7 @@ function list() {
 
   console.log(
     'Usage:',
-    chalk.blue.bold(
-      'react-native-infinity init AwesomeProject -s mobileWebElectron',
-    ),
+    chalk.blue.bold('react-native-infinity init AwesomeProject -s mwe'),
   );
   newLine(1);
   console.log(
