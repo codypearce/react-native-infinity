@@ -62,8 +62,12 @@ module.exports = function addPlatform(platform) {
     return;
   }
   let newPackage = currentPackageJSON;
-
   const directory = "../../starters/packagejson/";
+
+  const corePath = path.resolve(__dirname, `${directory}/core.json`);
+  const coreJSON = fs.readFileSync(corePath);
+  newPackage = merge(newPackage, coreJSON);
+
   const pathToPlatformJSON = path.resolve(
     __dirname,
     `${directory}/${starter}.json`
