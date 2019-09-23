@@ -1,7 +1,7 @@
 module.exports = function init(name, options) {
   const { starter, platforms } = findStarter(options.starter);
   if (starter) {
-    handleFound(starter, platforms, name);
+    handleFound(starter, platforms, name, options.uilibrary);
   } else {
     handleNotFound(name, options.starter);
   }

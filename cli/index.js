@@ -7,6 +7,7 @@ const addPlatform = require('./commands/addPlatform');
 
 const getName = require('./interactive/getName');
 const getPlatforms = require('./interactive/getPlatforms');
+const getUILibrary = require('./interactive/getUILibrary');
 const getPlatform = require('./interactive/getPlatform');
 
 program
@@ -14,11 +15,14 @@ program
   .alias('i')
   .description('Initializes project in a new directory with a name')
   .option('-s, --starter [template]', 'Choose a preset starter')
+  .option('-ui, --uilibrary [uilibrary]', 'Choose ui library')
   .action(function(name, options) {
     if (!name) {
       getName(options);
     } else if (name && !options.starter) {
       getPlatforms(name);
+    } else if (name && options.starter && !options.uilibrary) {
+      getUILibrary(name, options);
     } else {
       init(name, options);
     }

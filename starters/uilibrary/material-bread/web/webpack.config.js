@@ -17,6 +17,10 @@ module.exports = {
         },
       },
       {
+        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+        loader: 'url-loader?limit=100000',
+      },
+      {
         test: /\.html$/,
         use: [
           {
@@ -36,6 +40,7 @@ module.exports = {
     // auto resolves any react-native import as react-native-web
     alias: {
       'react-native': 'react-native-web',
+      'react-native-svg': 'react-native-svg-web',
     },
     extensions: ['.web.js', '.js'],
   },

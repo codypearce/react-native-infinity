@@ -7,8 +7,9 @@ const packagename = require('../../console/packageName');
 const platformCommand = require('../../console/platformCommand');
 const createPackageJson = require('../../lib/createPackageJson');
 const handleFolderExists = require('../../lib/handleFolderExists');
+const addUILibrary = require('../../lib/addUILibrary');
 
-function handleFound(starter, platforms, name) {
+function handleFound(starter, platforms, name, uilibrary) {
   if (handleFolderExists(`./${name}/`, name, [])) return;
 
   // Copy Core logic
@@ -42,13 +43,15 @@ function handleFound(starter, platforms, name) {
     }
   });
 
-  newLine(1);
+  // Copy and Merge JSON
   console.log(chalk.cyan(`Merging Package.json`));
   const packageJson = createPackageJson(arr);
   fs.writeFileSync(`${name}/package.json`, packageJson);
 
-  newLine(1);
+  // UI Library
+  addUILibrary(uilibrary, arr, name);
 
+  newLine(1);
   packagename();
   horizontalLine(1);
   console.log(chalk.cyan('Get started:'));
@@ -56,12 +59,24 @@ function handleFound(starter, platforms, name) {
   console.log(chalk.cyan('2.'), chalk.blue.bold('npm i'));
   const platformArr = platforms.split(' ');
 
-  if (platformArr.find(item => item == 'Mobile')) {
+  if (platformArr.includes('Mobile') || platformArr.includes('Macos')) {
     console.log(
       chalk.cyan('3.'),
       chalk.blue.bold(`npx react-native-rename ${name}`),
     );
   }
+
+  if (uilibrary == 'm' && platformArr.find(item => item == 'Mobile')) {
+    console.log(
+      chalk.cyan(
+        '4.',
+        chalk.blue.bold(
+          `Follow instructions for Android and iOS for vector icons: https://github.com/oblador/react-native-vector-icons`,
+        ),
+      ),
+    );
+  }
+
   newLine(1);
   console.log(
     chalk.cyan(

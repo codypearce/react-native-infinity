@@ -32,7 +32,7 @@ module.exports = function getPlatforms(name) {
       } else {
         const platformString = platformArr.join('');
 
-        init(name, { starter: platformString });
+        getUILibrary(name, { starter: platformString });
       }
     })
     .catch(() => {
@@ -43,5 +43,6 @@ module.exports = function getPlatforms(name) {
 // Avoid Circular Dependency
 const { prompt } = require('enquirer');
 const chalk = require('chalk');
-const init = require('../commands/init/index');
+
 const newLine = require('../console/newLine');
+const getUILibrary = require('./getUILibrary');
