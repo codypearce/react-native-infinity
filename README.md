@@ -1,9 +1,23 @@
-# React Native Inifinity
+<h1 align="center">React Native Infinity</h1>
+
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/671f47a2-1863-4a7e-aaea-d07e8907d816/deploy-status)](https://app.netlify.com/sites/silly-sinoussi-9c57cb/deploys) ![npm](https://img.shields.io/npm/v/react-native-infinity)
 
-React Native Inifinity is a CLI that generates React Native starters for all platforms your app needs to support.
+<p align="center">
+<b>CLI that generates React Native projects targeting any combination of platforms</b><br>
+<sub>iOS, Android, Web, Electron, Windows, MacOS</sub>
+</p>
 
-You can use the [interactive](https://www.reactnativeinfinity.com/) tool in the docs to generate the CLI command you need, or follow the CLI docs below to customize your own command. 
+
+You can use the [interactive](https://www.reactnativeinfinity.com/) tool in the docs to generate the CLI command you need, or simply use `npx react-native-infinity init` to use the CLI interactive tool.
+
+## Features
+* __Multi-Platform__ - Choose any combination of 6 platforms to target (iOS, Android, Web, Electron, Windows, MacOS)
+* __Add Platform__ - Can add another platform anytime with `add-platform` command
+* __UI Library__ - Add cross-platform UI libraries (Material Bread, UI Kitten)
+* __Interactive GUI__ - Online GUI to select platforms and libraries to get started
+* __Interactive CLI__ - Can select platforms and libraries to get started
+
 
 ## Table of Contents
 
