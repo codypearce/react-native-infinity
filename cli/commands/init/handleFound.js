@@ -69,10 +69,19 @@ function handleFound(starter, platforms, name, uilibrary) {
   if (uilibrary == 'm' && platformArr.find(item => item == 'Mobile')) {
     console.log(
       chalk.cyan(
-        '4.',
+        'Vector Icons Extra:',
         chalk.blue.bold(
-          `Follow instructions for Android and iOS for vector icons: https://github.com/oblador/react-native-vector-icons`,
+          `Follow instructions for Android and iOS: https://github.com/oblador/react-native-vector-icons`,
         ),
+      ),
+    );
+  }
+
+  if (platformArr.find(item => item == 'Windows')) {
+    console.log(
+      chalk.cyan(
+        'Windows Final Step:',
+        chalk.blue.bold(`react-native windows`),
       ),
     );
   }

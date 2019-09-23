@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "windows": "react-native windows"
+  },
+  "dependencies": {
+    "rnpm-plugin-windows": "^0.2.11"
+  }
+}
