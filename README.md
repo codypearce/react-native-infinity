@@ -63,20 +63,20 @@ $  npx react-native-infinity <command>
 
 ## ❯ init
 
-`init <name> --starter <platforms>` where <name> is the name of your application and <platforms> indicates which platforms should be supported.
+`init <name>` where <name> is an optional paramter that indicates the name of the folder and app. Additional options are passed when using the generated GUI tool.
 
-For example to generate a project with name AwesomeProject that targets Android, iOS, and Web, run:
+<p align="center">
 
-```
-npx react-native-infinity init AwesomeProject --starter mw
-```
-`mw` is short-hand keyword to indicate what platforms to support Mobile and Web. Platform keywords can be found by running the `list` command and are displayed below.
+<img src="https://raw.githubusercontent.com/codypearce/react-native-infinity/master/media/init-name.gif" alt="Init Command" width="750">
+</p>
+
 
 <br>
 
 ## ❯ add-platform
 
 `add-platform` command adds a platform after project initialization. Pass in a single platform from those listed in the `list` section
+
 ```
 npx react-native-infinity add-platform electron
 ```
@@ -86,6 +86,11 @@ npx react-native-infinity add-platform electron
 ## ❯ list
 
 `npx react-native-infinity list` lists all supported platforms with the name you pass into `--starter`
+
+<p align="center">
+
+<img src="https://raw.githubusercontent.com/codypearce/react-native-infinity/master/media/list.gif" alt="Init Command" width="750">
+</p>
 
 <br>
 
