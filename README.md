@@ -1,15 +1,30 @@
-# React Native Inifinity
+<h1 align="center">React Native Infinity</h1>
+
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/671f47a2-1863-4a7e-aaea-d07e8907d816/deploy-status)](https://app.netlify.com/sites/silly-sinoussi-9c57cb/deploys) ![npm](https://img.shields.io/npm/v/react-native-infinity)
 
-React Native Inifinity is a CLI that generates React Native starters for all platforms your app needs to support.
+<p align="center">
+<b>CLI that generates React Native projects targeting any combination of platforms</b><br>
+<sub>iOS, Android, Web, Electron, Windows, MacOS</sub>
+</p>
 
-You can use the [interactive](https://www.reactnativeinfinity.com/) tool in the docs to generate the CLI command you need, or follow the CLI docs below to customize your own command. 
+
+You can use the [interactive](https://www.reactnativeinfinity.com/) tool in the docs to generate the CLI command you need, or simply use `npx react-native-infinity init` to use the CLI interactive tool.
+
+## Features
+* __Multi-Platform__ - Choose any combination of 6 platforms to target (iOS, Android, Web, Electron, Windows, MacOS)
+* __Add Platform__ - Add another platform anytime with `add-platform` command
+* __UI Library__ - Add cross-platform UI libraries (Material Bread, UI Kitten)
+* __Interactive GUI__ - Online GUI to select platforms and libraries to get started
+* __Interactive CLI__ - Select platforms and libraries by answers questions in your terminal
+
 
 ## Table of Contents
 
 - [CLI](#cli)
   - [Installation](#installation)
   - [`init`](#init)
+  - [`add-platform`](#add-platform)
   - [`list`](#list)
 - [Starter](#starter)
   - [Structure](#structure)
@@ -26,9 +41,15 @@ You can use the [interactive](https://www.reactnativeinfinity.com/) tool in the 
 
 You can install the project globally, but the preferred method is to simply use the`npx` without installing anything.
 
-Install globally: `npm install react-native-infinity -g`
+Install globally
+```
+$  npm install react-native-infinity -g
+```
 
-Using `npx`: `npx react-native-infinity <command>`
+Using `npx`: 
+```
+$  npx react-native-infinity <command>
+```
 
 ## `init`
 
@@ -40,6 +61,13 @@ For example to generate a project with name AwesomeProject that targets Android,
 npx react-native-infinity init AwesomeProject --starter mw
 ```
 `mw` is short-hand keyword to indicate you want to build a project that supports Mobile and Web. Platform keywords can be found by running the `list` command and are displayed below.
+
+## `add-platform`
+
+`add-platform` command adds a platform after project initialization. Pass in a single platform from those listed in the `list` section
+```
+npx react-native-infinity add-platform electron
+```
 
 ## `list`
 
