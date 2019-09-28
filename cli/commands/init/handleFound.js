@@ -58,7 +58,10 @@ function handleFound(starter, platforms, name, uilibrary) {
   fs.writeFileSync(`${name}/package.json`, packageJson);
 
   // UI Library
-  addUILibrary(uilibrary, arr, name);
+
+  if (uilibrary !== 'None') {
+    addUILibrary(uilibrary, arr, name);
+  }
 
   newLine(1);
   packagename();
