@@ -12,7 +12,7 @@ module.exports = function addPlatform(platform) {
   }
 
   let addedSoFar = [];
-  console.log(platforms);
+
   if (starter == 'm') {
     console.log(chalk.cyan('Setting up iOS'));
 

@@ -9,7 +9,7 @@ function list() {
   newLine(1);
   packagename();
   newLine(1);
-  console.log('All possible Starters');
+  console.log('All possible Platform combos');
 
   horizontalLine(1);
   newLine(1);
@@ -39,7 +39,7 @@ function list() {
   );
   newLine(1);
   console.log(
-    'You can also use the interactive CLI by not passing anything into init npx react-native-infinity init',
+    'You can also use the interactive CLI by not passing anything in, npx react-native-infinity init',
   );
   newLine(1);
 }
