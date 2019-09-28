@@ -16,9 +16,9 @@
 <img src="https://raw.githubusercontent.com/codypearce/react-native-infinity/master/media/init-final.gif" alt="Init Command" width="750">
 </p>
 
-
-
 You can use the [interactive](https://www.reactnativeinfinity.com/) tool in the docs to generate the CLI command you need, or simply use `npx react-native-infinity init` to use the CLI interactive tool.
+
+<br>
 
 ## Features
 * __Multi-Platform__ - Choose any combination of 6 platforms to target (iOS, Android, Web, Electron, Windows, MacOS)
@@ -27,13 +27,14 @@ You can use the [interactive](https://www.reactnativeinfinity.com/) tool in the 
 * __Interactive GUI__ - Online GUI to select platforms and libraries to get started
 * __Interactive CLI__ - Select platforms and libraries by answers questions in your terminal
 
+<br>
 
 ## Getting Started
 
 - [Installation](#installation)
-- [`init`](#init)
-- [`add-platform`](#add-platform)
-- [`list`](#list)
+- [init](#-init)
+- [add-platform](#-add-platform)
+- [list](#-list)
 - [Project](#project)
   - [Structure](#structure)
   - [Web](#web)
@@ -41,7 +42,7 @@ You can use the [interactive](https://www.reactnativeinfinity.com/) tool in the 
   - [Android](#android)
   - [ios](#ios)
       
-
+<br>
 
 
 ## Installation 
@@ -58,7 +59,9 @@ Using `npx`:
 $  npx react-native-infinity <command>
 ```
 
-## `init`
+<br>
+
+## ❯ init
 
 `init <name> --starter <platforms>` where <name> is the name of your application and <platforms> indicates which platforms should be supported.
 
@@ -69,17 +72,22 @@ npx react-native-infinity init AwesomeProject --starter mw
 ```
 `mw` is short-hand keyword to indicate what platforms to support Mobile and Web. Platform keywords can be found by running the `list` command and are displayed below.
 
-## `add-platform`
+<br>
+
+## ❯ add-platform
 
 `add-platform` command adds a platform after project initialization. Pass in a single platform from those listed in the `list` section
 ```
 npx react-native-infinity add-platform electron
 ```
 
-## `list`
+<br>
+
+## ❯ list
 
 `npx react-native-infinity list` lists all supported platforms with the name you pass into `--starter`
 
+<br>
 
 
 # Project
