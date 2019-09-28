@@ -40,6 +40,9 @@ function handleFound(starter, platforms, name, uilibrary) {
         path.resolve(__dirname, `../../../starters/platforms/android/.`),
         `${name}/android/`,
       );
+    } else if (lowerPlatform == 'windows') {
+      // No windows files
+      return;
     } else {
       console.log(chalk.cyan(`Setting up ${platform}`));
       fs.copySync(
