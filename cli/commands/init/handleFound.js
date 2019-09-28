@@ -14,7 +14,11 @@ function handleFound(starter, platforms, name, uilibrary) {
 
   // Copy Core logic
   console.log(chalk.cyan('Setting up Core'));
-  fs.copySync(path.resolve(__dirname, `../../../starters/core/.`), name);
+  try {
+    fs.copySync(path.resolve(__dirname, `../../../starters/core/.`), name);
+  } catch (err) {
+    console.log('core error', err);
+  }
 
   // Copy Platform logic
   const arr = platforms.split(' ');
@@ -22,10 +26,15 @@ function handleFound(starter, platforms, name, uilibrary) {
     const lowerPlatform = platform.toLowerCase();
     if (lowerPlatform == 'mobile') {
       console.log(chalk.cyan('Setting up iOS'));
-      fs.copySync(
-        path.resolve(__dirname, `../../../starters/platforms/ios/.`),
-        `${name}/ios/`,
-      );
+      try {
+        fs.copySync(
+          path.resolve(__dirname, `../../../starters/platforms/ios/.`),
+          `${name}/ios/`,
+        );
+      } catch (err) {
+        console.log('ios error', err);
+      }
+
       console.log(chalk.cyan('Setting up Android'));
       fs.copySync(
         path.resolve(__dirname, `../../../starters/platforms/android/.`),

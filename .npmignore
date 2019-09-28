@@ -73,10 +73,8 @@ docs/**/*
 __tests__
 .git
 .storybook
-android
 docker
 docs
-ios
 public
 storybook
 .buckconfig
