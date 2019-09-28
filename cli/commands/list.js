@@ -23,7 +23,7 @@ function list() {
   for (let i = 0; i < starters.shorthand.length; i++) {
     console.log(
       chalk.blue(fixedWidthCell(14, starters.shorthand[i])),
-      chalk.cyan(fixedWidthCell(28, starters.longhandSeparated[i])),
+      chalk.cyan(fixedWidthCell(50, starters.longhandSeparated[i])),
     );
   }
 
