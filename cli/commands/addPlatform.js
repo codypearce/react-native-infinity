@@ -3,17 +3,17 @@ const path = require('path');
 const merge = require('merge-package-json');
 const chalk = require('chalk');
 
-module.exports = function addPlatform(platform) {
-  const { starter, platforms } = findStarter(platform);
+module.exports = function addPlatform(value) {
+  const platform = findPlatform(value);
 
-  if (!starter) {
+  if (!platform) {
     getPlatform();
     return;
   }
 
   let addedSoFar = [];
 
-  if (starter == 'm') {
+  if (platform == 'mobile') {
     console.log(chalk.cyan('Setting up iOS'));
 
     if (handleFolderExists('./ios/', 'ios', addedSoFar)) return;
@@ -31,8 +31,8 @@ module.exports = function addPlatform(platform) {
     );
     addedSoFar.push('android');
   } else {
-    const lowerPlatform = platforms.toLowerCase();
-    console.log(chalk.cyan(`Setting up ${platforms}`));
+    const lowerPlatform = platform.toLowerCase();
+    console.log(chalk.cyan(`Setting up ${platform}`));
     if (handleFolderExists(`./${lowerPlatform}/`, lowerPlatform, addedSoFar))
       return;
     fs.copySync(
@@ -52,7 +52,7 @@ module.exports = function addPlatform(platform) {
     currentPackageJSON = fs.readFileSync(pathToCurrent);
   } catch (err) {
     // Remove Created Folders
-    removePlatformFolder(platforms);
+    removePlatformFolder(addedSoFar);
     console.log(
       `${chalk.red.bold(
         'ERROR',
@@ -72,7 +72,7 @@ module.exports = function addPlatform(platform) {
 
   const pathToPlatformJSON = path.resolve(
     __dirname,
-    `${directory}/${platforms.toLowerCase()}.json`,
+    `${directory}/${platform.toLowerCase()}.json`,
   );
   const platformJSON = fs.readFileSync(pathToPlatformJSON);
 
@@ -94,7 +94,7 @@ module.exports = function addPlatform(platform) {
     ),
   );
 
-  platformCommand(platforms);
+  platformCommand(platform);
 
   newLine(1);
   horizontalLine(1);
@@ -106,7 +106,7 @@ module.exports = function addPlatform(platform) {
 };
 
 // Avoid Circular Dependency
-const findStarter = require('../lib/findStarter');
+const findPlatform = require('../lib/findPlatform');
 const newLine = require('../console/newLine');
 const horizontalLine = require('../console/horizontalLine');
 const packagename = require('../console/packageName');
