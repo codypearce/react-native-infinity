@@ -1,12 +1,21 @@
 <h1 align="center">React Native Infinity</h1>
 
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/671f47a2-1863-4a7e-aaea-d07e8907d816/deploy-status)](https://app.netlify.com/sites/silly-sinoussi-9c57cb/deploys) ![npm](https://img.shields.io/npm/v/react-native-infinity)
+<p align="center">
+<img src="https://api.netlify.com/api/v1/badges/671f47a2-1863-4a7e-aaea-d07e8907d816/deploy-status" alt="Netlify Status" />
+<img src="https://img.shields.io/npm/v/react-native-infinity" alt="NPM" />
+ </p>     
 
 <p align="center">
 <b>CLI that generates React Native projects targeting any combination of platforms</b><br>
 <sub>iOS, Android, Web, Electron, Windows, MacOS</sub>
 </p>
+
+<p align="center">
+
+<img src="https://raw.githubusercontent.com/codypearce/react-native-infinity/master/media/init-final.gif" alt="Init Command" width="750">
+</p>
+
 
 
 You can use the [interactive](https://www.reactnativeinfinity.com/) tool in the docs to generate the CLI command you need, or simply use `npx react-native-infinity init` to use the CLI interactive tool.
