@@ -87,6 +87,15 @@ module.exports = function addPlatform(value) {
   console.log(chalk.cyan('Get started:'));
   console.log(chalk.cyan('1.'), chalk.blue.bold('npm i'));
 
+  if (platform == 'windows') {
+    console.log(
+      chalk.cyan(
+        'Windows Final Step:',
+        chalk.blue.bold(`react-native windows`),
+      ),
+    );
+  }
+
   newLine(1);
   console.log(
     chalk.cyan(

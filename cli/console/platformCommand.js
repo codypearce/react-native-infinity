@@ -1,5 +1,6 @@
 const chalk = require('chalk');
 const fixedWidthCell = require('./fixedWidthCell');
+const newLine = require('./newLine');
 const capitalize = require('../utils/capitalize');
 
 function platformCommand(platform) {
@@ -37,6 +38,20 @@ function platformCommand(platform) {
       fixedWidthCell(10, ' ') +
         ' Please visit react-native-macos docs for more information https://github.com/ptmt/react-native-macos',
     );
+    newLine(1);
+  } else if (platform == 'windows') {
+    const platformName = chalk.cyan(
+      fixedWidthCell(10, capitalize(platform + ':')),
+    );
+
+    console.log('  ', platformName + npmCommand(platform));
+
+    console.log(
+      '  ',
+      fixedWidthCell(10, ' ') +
+        ' Please visit react-native-windows docs for more information https://github.com/microsoft/react-native-windows',
+    );
+    newLine(1);
   } else {
     const platformName = chalk.cyan(
       fixedWidthCell(10, capitalize(platform + ':')),
