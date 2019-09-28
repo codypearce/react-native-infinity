@@ -98,3 +98,4 @@ src/**/*.test.js
 src/storybook/**/*
 **/*/__snapshots__
 node_modules
+media/**/**

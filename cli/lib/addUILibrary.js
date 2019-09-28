@@ -35,11 +35,6 @@ module.exports = function addUILibrary(library, platforms, name) {
         `${__dirname}/${directory}${uilibrary.name}/${lowerPlatform}`,
       );
 
-      console.log(
-        `${__dirname}/${directory}${uilibrary.name}/${lowerPlatform}`,
-        src,
-      );
-
       if (src) {
         fs.copySync(
           path.resolve(
