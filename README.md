@@ -28,14 +28,13 @@ You can use the [interactive](https://www.reactnativeinfinity.com/) tool in the 
 * __Interactive CLI__ - Select platforms and libraries by answers questions in your terminal
 
 
-## Table of Contents
+## Getting Started
 
-- [CLI](#cli)
-  - [Installation](#installation)
-  - [`init`](#init)
-  - [`add-platform`](#add-platform)
-  - [`list`](#list)
-- [Starter](#starter)
+- [Installation](#installation)
+- [`init`](#init)
+- [`add-platform`](#add-platform)
+- [`list`](#list)
+- [Project](#project)
   - [Structure](#structure)
   - [Web](#web)
   - [Electron](#electron)
@@ -44,11 +43,10 @@ You can use the [interactive](https://www.reactnativeinfinity.com/) tool in the 
       
 
 
-# CLI
 
 ## Installation 
 
-You can install the project globally, but the preferred method is to simply use the`npx` without installing anything.
+You can install the project globally or use `npx`:
 
 Install globally
 ```
@@ -62,14 +60,14 @@ $  npx react-native-infinity <command>
 
 ## `init`
 
-`init` is used as follows: `init <name> --starter <platforms>` where <name> is the name of your application and <platforms> indicates which platforms should be supported.
+`init <name> --starter <platforms>` where <name> is the name of your application and <platforms> indicates which platforms should be supported.
 
 For example to generate a project with name AwesomeProject that targets Android, iOS, and Web, run:
 
 ```
 npx react-native-infinity init AwesomeProject --starter mw
 ```
-`mw` is short-hand keyword to indicate you want to build a project that supports Mobile and Web. Platform keywords can be found by running the `list` command and are displayed below.
+`mw` is short-hand keyword to indicate what platforms to support Mobile and Web. Platform keywords can be found by running the `list` command and are displayed below.
 
 ## `add-platform`
 
@@ -82,22 +80,13 @@ npx react-native-infinity add-platform electron
 
 `npx react-native-infinity list` lists all supported platforms with the name you pass into `--starter`
 
-| Long Name         | Short Name | Platforms                |
-|-------------------|------------|--------------------------|
-| mobile            | m          | Android iOS              |
-| mobileWeb         | mw         | Android iOS Web          |
-| mobileWebElectron | mwe        | Android iOS Web Electron |
-| mobileElectron    | me         | Android iOS Electron     |
-| web               | w          | Web                      |
-| webElectron       | we         | Web Electron             |
-| electron          | e          | Electron                 |
 
 
-# Starter
+# Project
 This starter contains a bare bones configuration for rendering on each platform.
 
 ## Structure
-React Native separates application code into `src` and platform configuration into `android` and `ios`. React Native Infinity extends this idea to more platforms. All application code stil lives in `src` while each platform `ios`, `android`, `web`, `electron` has it's own folder that contains configurations, including `webpack` config for each platform. Below are commands that run
+React Native separates application code into `src` and platform configuration into `android` and `ios`. React Native Infinity extends this idea to more platforms. All application code lives in `src` while each platform `ios`, `android`, `web`, `electron`, `macos`, `windows` has it's own folder that contains configurations, including `webpack` config for each platform. 
 
 ## Web
 React Native on the web is supported by [react-native-web](https://github.com/necolas/react-native-web), please check the documentation to learn more.
