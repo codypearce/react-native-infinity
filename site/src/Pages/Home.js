@@ -12,6 +12,18 @@ export default class App extends React.Component {
     starter: 'm',
     starterLong: 'Android, iOS',
     platforms: ['m'],
+    uilibrary: '',
+  };
+
+  handleUILibrary = library => {
+    const { uilibrary } = this.state;
+    let newUILibrary = library;
+
+    if (uilibrary == library) newUILibrary = '';
+
+    this.setState({
+      uilibrary: newUILibrary,
+    });
   };
 
   handlePlatform = platform => {
@@ -35,32 +47,87 @@ export default class App extends React.Component {
       }
     }
 
-    const starterLong = this.buildStartLong(newPlatforms);
-
     this.setState({
       platforms: newPlatforms,
       starter: newPlatforms.join(''),
-      starterLong,
     });
   };
 
-  buildStartLong(newPlatforms) {
-    let starterLong = ``;
+  _renderUILibraries() {
+    const { uilibrary } = this.state;
+    const { pageWidth } = this.props;
 
-    if (newPlatforms[0]) starterLong = 'Android, iOS';
-    if (newPlatforms[1])
-      starterLong += starterLong.length > 0 ? ', Web' : 'Web';
-    if (newPlatforms[2])
-      starterLong +=
-        starterLong.length > 0
-          ? ', MacOS, Windows, Linux'
-          : 'MacOS, Windows, Linux';
+    return (
+      <View style={styles.section}>
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            flexWrap: 'wrap',
+          }}>
+          <Text
+            style={[
+              styles.h2,
+              {
+                color: '#ededed',
+              },
+            ]}>
+            UI Library
+          </Text>
+        </View>
 
-    return starterLong;
+        <View
+          style={[
+            styles.row,
+            { justifyContent: pageWidth < 370 ? 'center' : 'flex-start' },
+          ]}>
+          <PlatformButton
+            platform="m"
+            handlePlatform={this.handleUILibrary}
+            active={uilibrary == 'm'}
+            pageWidth={pageWidth}>
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                width: '100%',
+              }}>
+              <Image
+                source={require('../../static/images/material-bread.svg')}
+                style={{ height: 40, width: 50 }}
+              />
+            </View>
+            <Text style={{ fontSize: 26, color: 'white', marginTop: 10 }}>
+              {'Material Bread'}
+            </Text>
+          </PlatformButton>
+          <PlatformButton
+            platform="k"
+            handlePlatform={this.handleUILibrary}
+            active={uilibrary == 'k'}
+            pageWidth={pageWidth}>
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                width: '100%',
+              }}>
+              <Image
+                source={require('../../static/images/ui-kitten.png')}
+                style={{ height: 31, width: 133 }}
+              />
+            </View>
+            <Text style={{ fontSize: 28, color: 'white', marginTop: 20 }}>
+              {'UI Kitten'}
+            </Text>
+          </PlatformButton>
+        </View>
+      </View>
+    );
   }
 
   render() {
-    const { platforms, starter } = this.state;
+    const { platforms, starter, uilibrary } = this.state;
     const { pageWidth } = this.props;
 
     const iconSize = 28;
@@ -287,12 +354,15 @@ Below is a simple GUI for generating a CLI command with the configuration you wa
               </PlatformButton>
             </View>
           </View>
+
+          {this._renderUILibraries()}
           <View style={styles.section}>
             <Text style={styles.h2}>CLI Command</Text>
             <CLICard
               appName={this.state.appName}
               starter={this.state.starter}
               pageWidth={pageWidth}
+              uilibrary={uilibrary}
             />
           </View>
         </View>

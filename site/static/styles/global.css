@@ -103,11 +103,15 @@ body {
   color: #000;
 }
 
+.glow-on-hover:hover:after {
+  background: rgba(0, 0, 0, 0.7);
+}
+
 .glow-on-hover.glow--selected:after {
   background: rgba(0, 0, 0, 0.2);
 }
-.glow-on-hover:hover:after {
-  background: rgba(0, 0, 0, 0.7);
+.glow-on-hover.glow--selected:hover:after {
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .glow-on-hover:before {

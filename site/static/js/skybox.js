@@ -50,7 +50,7 @@ function init() {
   controls.maxDistance = 1500;
   controls.autoRotate = true;
   controls.autoRotateSpeed = 1.0;
-
+  controls.enabled = false;
   window.addEventListener('resize', onWindowResize, false);
   animate();
 }
@@ -65,7 +65,7 @@ function animate() {
   controls.update();
   renderer.render(scene, camera);
   requestAnimationFrame(animate);
-  controls.enabled = false;
+
   // if (controls.enabled == true && window.location.pathname !== '/') {
   //   controls.enabled = false;
   // } else if (controls.enabled == false && window.location.pathname == '/') {

@@ -1,20 +1,24 @@
-import React, { Fragment } from "react";
-import { Text, View, StyleSheet } from "react-native";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import { Card, Button } from "material-bread";
+import React, { Fragment } from 'react';
+import { Text, View, StyleSheet } from 'react-native';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { Card, Button } from 'material-bread';
 
 export default class CLICard extends React.Component {
   state = {
-    copySuccess: false
+    copySuccess: false,
   };
 
   copyToClipboard = () => {
-    const { appName, starter } = this.props;
-    var textField = document.createElement("textarea");
-    textField.innerHTML = `npx react-native-infinity init ${appName} --starter ${starter}`;
+    const { appName, starter, uilibrary } = this.props;
+    let library = '';
+    if (uilibrary.length > 0) {
+      library = `--uilibrary ${uilibrary}`;
+    }
+    var textField = document.createElement('textarea');
+    textField.innerHTML = `npx react-native-infinity init ${appName} --starter ${starter} ${library}`;
     document.body.appendChild(textField);
     textField.select();
-    document.execCommand("copy");
+    document.execCommand('copy');
     textField.remove();
 
     this.setState({ copySuccess: true }, () => {
@@ -23,23 +27,27 @@ export default class CLICard extends React.Component {
   };
 
   renderContent() {
-    const { appName, starter, pageWidth } = this.props;
+    const { appName, starter, pageWidth, uilibrary } = this.props;
     const { copySuccess } = this.state;
+    let library = '';
+    if (uilibrary.length > 0) {
+      library = `--uilibrary ${uilibrary}`;
+    }
     return (
       <Fragment>
         <Text style={styles.text}>
-          npx react-native-infinity init {appName} --starter {starter}
+          {`npx react-native-infinity init ${appName} --starter ${starter} ${library}`}
         </Text>
         <Button
-          text={copySuccess ? "Copied" : "Copy"}
+          text={copySuccess ? 'Copied' : 'Copy'}
           type="flat"
-          color={"#D81B60"}
+          color={'#D81B60'}
           style={[
             styles.copyButton,
             {
-              position: pageWidth < 570 ? "relative" : "absolute",
-              marginTop: pageWidth < 570 ? 8 : 0
-            }
+              position: pageWidth < 570 ? 'relative' : 'absolute',
+              marginTop: pageWidth < 570 ? 8 : 0,
+            },
           ]}
           dense
           onPress={this.copyToClipboard}
@@ -54,9 +62,9 @@ export default class CLICard extends React.Component {
     const noStarter = starter.length < 1;
 
     let errorText = noStarter
-      ? "Your app needs to target at least one platform"
-      : "";
-    errorText = noAppName ? "App name is required" : errorText;
+      ? 'Your app needs to target at least one platform'
+      : '';
+    errorText = noAppName ? 'App name is required' : errorText;
     return (
       <Fragment>
         <Text style={styles.text}>{errorText}</Text>
@@ -72,10 +80,9 @@ export default class CLICard extends React.Component {
           styles.cliCard,
 
           {
-            backgroundColor: hasError ? "#B71C1C" : "#212121"
-          }
-        ]}
-      >
+            backgroundColor: hasError ? '#B71C1C' : '#212121',
+          },
+        ]}>
         {hasError ? this.renderError() : this.renderContent()}
       </Card>
     );
@@ -86,15 +93,15 @@ const styles = StyleSheet.create({
   cliCard: {
     padding: 12,
     marginTop: 10,
-    backgroundColor: "#212121",
-    position: "relative"
+    backgroundColor: '#212121',
+    position: 'relative',
   },
   copyButton: {
-    position: "absolute",
+    position: 'absolute',
     right: 8,
-    top: 4
+    top: 4,
   },
   text: {
-    color: "white"
-  }
+    color: 'white',
+  },
 });
