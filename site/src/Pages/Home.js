@@ -1,6 +1,6 @@
 // component.jsx
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, Image, StyleSheet } from 'react-native';
 import { Button, Subtitle, TextField, Card } from 'material-bread';
 import HeaderLink from '../Components/HeaderLink';
 import CLICard from '../Components/CLICard';
@@ -126,19 +126,6 @@ Below is a simple GUI for generating a CLI command with the configuration you wa
                 ]}>
                 Platforms
               </Text>
-              <Text
-                style={[
-                  styles.h2,
-                  {
-                    fontSize: 24,
-                    color: starter.length < 1 ? '#B71C1C' : '#555',
-                  },
-                ]}>
-                {`    ${
-                  starter.length < 1 ? 0 : starterLong.split(',').length
-                }`}
-              </Text>
-              <Subtitle text={starterLong} style={{ marginLeft: 8 }} />
             </View>
 
             <View
@@ -151,23 +138,92 @@ Below is a simple GUI for generating a CLI command with the configuration you wa
                 platform="m"
                 handlePlatform={this.handlePlatform}
                 active={platforms.find(item => item == 'm')}
-                pageWidth={pageWidth}
-              />
+                pageWidth={pageWidth}>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    width: '100%',
+                  }}>
+                  <Image
+                    source={require('../../static/images/apple.png')}
+                    style={{ height: 24, width: 24 }}
+                  />
+                  <Image
+                    source={require('../../static/images/android.png')}
+                    style={{ height: 24, width: 24 }}
+                  />
+                </View>
+                <Text style={{ fontSize: 28, color: 'white', marginTop: 20 }}>
+                  {'Mobile'}
+                </Text>
+              </PlatformButton>
               <PlatformButton
-                text="Web"
                 platform="w"
                 handlePlatform={this.handlePlatform}
                 active={platforms.find(item => item == 'w')}
-                pageWidth={pageWidth}
-              />
+                pageWidth={pageWidth}>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    width: '100%',
+                  }}>
+                  <Image
+                    source={require('../../static/images/chrome.png')}
+                    style={{ height: 24, width: 24 }}
+                  />
+                  <Image
+                    source={require('../../static/images/firefox.png')}
+                    style={{ height: 24, width: 24 }}
+                  />
+                  <Image
+                    source={require('../../static/images/edge.png')}
+                    style={{ height: 24, width: 24 }}
+                  />
+                  <Image
+                    source={require('../../static/images/safari.png')}
+                    style={{ height: 24, width: 24 }}
+                  />
+                </View>
+                <Text style={{ fontSize: 28, color: 'white', marginTop: 20 }}>
+                  {'Web'}
+                </Text>
+              </PlatformButton>
               <PlatformButton
-                text="Electron"
                 platform="e"
                 handlePlatform={this.handlePlatform}
                 active={platforms.find(item => item == 'e')}
                 endButton
-                pageWidth={pageWidth}
-              />
+                pageWidth={pageWidth}>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    width: '100%',
+                  }}>
+                  <Image
+                    source={require('../../static/images/windows.png')}
+                    style={{ height: 24, width: 24 }}
+                  />
+
+                  <Image
+                    source={require('../../static/images/linux.png')}
+                    style={{ height: 24, width: 24 }}
+                  />
+                  <Image
+                    source={require('../../static/images/macos2.svg')}
+                    style={{
+                      height: 13,
+                      width: 50,
+                      marginTop: 5,
+                    }}
+                  />
+                </View>
+                <Text style={{ fontSize: 28, color: 'white', marginTop: 20 }}>
+                  {'Electron'}
+                </Text>
+              </PlatformButton>
             </View>
           </View>
           <View style={styles.section}>
@@ -202,7 +258,6 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   topSection: {
-    marginBottom: 20,
     maxWidth: 700,
   },
 
@@ -218,7 +273,7 @@ const styles = StyleSheet.create({
   },
   h2: {
     color: '#ededed',
-    fontSize: 30,
+    fontSize: 20,
     fontFamily: 'Syncopate',
   },
   caption: {
