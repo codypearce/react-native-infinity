@@ -33,11 +33,8 @@ You can use the [interactive](https://www.reactnativeinfinity.com/) tool in the 
 - [add-platform](#-add-platform)
 - [list](#-list)
 - [Project](#project)
-  - [Structure](#structure)
-  - [Web](#web)
-  - [Electron](#electron)
-  - [Android](#android)
-  - [ios](#ios)
+  - [Platforms](#platforms)
+  - [UILibraries](#ui-libraries)
       
 <br>
 
@@ -106,12 +103,20 @@ Supported platform strings:
 
 
 # Project
-This starter contains a bare bones configuration for rendering on each platform.
+React Native separates application code into `src` and platform configuration into `android` and `ios`. React Native Infinity extends this idea to more platforms. All application code lives in `src` while each platform `ios`, `android`, `web`, `electron`, `macos`, `windows` has it's own folder that contains configuration files, including `webpack` config. By separating out configuration in this way we can more easily pick and choose what platforms our apps should support both at initialization and later on. 
 
-## Structure
-React Native separates application code into `src` and platform configuration into `android` and `ios`. React Native Infinity extends this idea to more platforms. All application code lives in `src` while each platform `ios`, `android`, `web`, `electron`, `macos`, `windows` has it's own folder that contains configurations, including `webpack` config for each platform. 
+<p align="center">
 
-## Web
+<img src="https://raw.githubusercontent.com/codypearce/react-native-infinity/master/media/folders-described.png" alt="Init Command" width="600">
+</p>
+
+
+
+<br>
+
+## Platforms
+
+### Web
 React Native on the web is supported by [react-native-web](https://github.com/necolas/react-native-web), please check the documentation to learn more.
 
 ```
@@ -133,8 +138,10 @@ npm run build-web
 ```
 Uses `./web/webpack.config` to build a production web build to `./web/dist`.
 
-## Electron
-Electron with React requires two commands to run and uses [react-native-web](https://github.com/necolas/react-native-web)
+<br>
+
+### Electron
+Electron with React requires two commands to run and uses [react-native-web](https://github.com/necolas/react-native-web).
 
 ```
 npm run electron
@@ -150,14 +157,41 @@ HTML Entry: `./electron/index.html`
 
 Entry File is `./electron/renderer.js`
 
+<br>
 
-## Android
+### MacOS
+
+MacOS is supported by [react-native-macos](https://github.com/ptmt/react-native-macos), please read the documentation for more information. `react-native-macos` requires two commands to run an app:
+
+```
+npm run macos-start
+```
+Starts the packager
+
+```
+npm run macos
+```
+This command aliases `react-native-macos run-macos` which opens a window.
+<br>
+
+### Windows
+
+Windows is supported by [react-native-windows](https://github.com/microsoft/react-native-windows), please read the documentation for more information. `react-native-windows` has some extra requirements to get running and requires React Native `0.59.10` at this time. Their [Getting Started Guide](https://github.com/microsoft/react-native-windows/blob/master/current/docs/GettingStarted.md) is very helpful for getting up and running.
+
+```
+npm run windows
+```
+This command aliases `react-native windows` 
+<br>
+### Android
 ```
 npm run android
 ```
 Simply runs `react-native run-android`, read the React Native docs for more information
 
-## iOS
+<br>
+
+### iOS
 ```
 npm run ios
 ```
