@@ -34,7 +34,7 @@ You can use the [interactive](https://www.reactnativeinfinity.com/) tool in the 
 - [list](#-list)
 - [Project](#project)
   - [Platforms](#platforms)
-  - [UILibraries](#ui-libraries)
+  - [UI Libraries](#ui-libraries)
       
 <br>
 
@@ -105,12 +105,13 @@ Supported platform strings:
 # Project
 React Native separates application code into `src` and platform configuration into `android` and `ios`. React Native Infinity extends this idea to more platforms. All application code lives in `src` while each platform `ios`, `android`, `web`, `electron`, `macos`, `windows` has it's own folder that contains configuration files, including `webpack` config. By separating out configuration in this way we can more easily pick and choose what platforms our apps should support both at initialization and later on. 
 
-<p align="center">
 
-<img src="https://raw.githubusercontent.com/codypearce/react-native-infinity/master/media/folders-described.png" alt="Init Command" width="600">
+
+<p align="center">
+ <img src="https://raw.githubusercontent.com/codypearce/react-native-infinity/master/media/folders-described.png" alt="Init Command" width="600">
 </p>
 
-
+This project is an experiment and meant as a starting off point for rendering on other platforms, not a full solution for all cases, some extra steps might be required for some platforms.
 
 <br>
 
@@ -123,15 +124,7 @@ React Native on the web is supported by [react-native-web](https://github.com/ne
 npm run web
 ```
 
-Config: `./web/webpack.config.js`. Config sets up an alias for `react-native` to `react-native-web`.
-
-HTML Entry: `./web/index.html`. 
-
-Entry file is `./web/index.js`.
-
-Runs on `localhost:8080`.
-
-
+Config: `./web/webpack.config.js`. Config sets up an alias for `react-native` to `react-native-web`. Runs on `localhost:8080`.
 
 ```
 npm run build-web
@@ -153,10 +146,6 @@ npm run server
 ``` 
 Runs react in the electron window using config `./electron/webpack.config.js`.
 
-HTML Entry: `./electron/index.html`
-
-Entry File is `./electron/renderer.js`
-
 <br>
 
 ### MacOS
@@ -172,6 +161,7 @@ Starts the packager
 npm run macos
 ```
 This command aliases `react-native-macos run-macos` which opens a window.
+
 <br>
 
 ### Windows
@@ -181,13 +171,15 @@ Windows is supported by [react-native-windows](https://github.com/microsoft/reac
 ```
 npm run windows
 ```
-This command aliases `react-native windows` 
+This command aliases `react-native windows`.
+
 <br>
+
 ### Android
 ```
 npm run android
 ```
-Simply runs `react-native run-android`, read the React Native docs for more information
+Simply runs `react-native run-android`, read the React Native docs for more information.
 
 <br>
 
@@ -195,7 +187,15 @@ Simply runs `react-native run-android`, read the React Native docs for more info
 ```
 npm run ios
 ```
-Simply runs `react-native run-ios`, read the React Native docs for more information
+Simply runs `react-native run-ios`, read the React Native docs for more information.
 
+<br>
 
+## UI Libraries
+Extending the idea of isolated configuration further we can easily copy over configuration for UI library setup as another step in initialization. Currently there are not many UI libraries that provide explicit support for all platforms, if you know of any more that should be added, please do not hesitate to create an issue or PR.
 
+### Material Bread
+Material Bread supports all platformsa and configuration is pretty simple, however, it does require setting up `react-native-vector-icon`s and `react-native-svg` if rendering on Android or IOS. Please read the docs for [more information](https://github.com/codypearce/material-bread).
+
+### UI Kitten
+UI Kitten recently added support for `react-native-web`, and configuration is very easy: simply select UI Kitten during `init`. Please read the documentation for [more information](https://akveo.github.io/react-native-ui-kitten/).
