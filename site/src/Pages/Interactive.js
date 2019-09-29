@@ -1,17 +1,17 @@
 // component.jsx
-import React from "react";
-import { Text, View, StyleSheet } from "react-native";
-import { Button, Subtitle, TextField, Card } from "material-bread";
-import HeaderLink from "../Components/HeaderLink";
-import CLICard from "../Components/CLICard";
-import PlatformButton from "../Components/PlatformButton";
+import React from 'react';
+import { Text, View, StyleSheet } from 'react-native';
+import { Button, Subtitle, TextField, Card } from 'material-bread';
+import HeaderLink from '../Components/HeaderLink';
+import CLICard from '../Components/CLICard';
+import PlatformButton from '../Components/PlatformButton';
 
 export default class App extends React.Component {
   state = {
-    appName: "AwesomeProject",
-    starter: "m",
-    starterLong: "Android, iOS",
-    platforms: ["m"]
+    appName: 'AwesomeProject',
+    starter: 'm',
+    starterLong: 'Android, iOS',
+    platforms: ['m'],
   };
 
   handlePlatform = platform => {
@@ -22,11 +22,11 @@ export default class App extends React.Component {
     if (index > -1) {
       newPlatforms[index] = null;
     } else {
-      if (platform == "m") {
+      if (platform == 'm') {
         newPlatforms[0] = platform;
-      } else if (platform == "w") {
+      } else if (platform == 'w') {
         newPlatforms[1] = platform;
-      } else if (platform == "e") {
+      } else if (platform == 'e') {
         newPlatforms[2] = platform;
       }
     }
@@ -35,22 +35,22 @@ export default class App extends React.Component {
 
     this.setState({
       platforms: newPlatforms,
-      starter: newPlatforms.join(""),
-      starterLong
+      starter: newPlatforms.join(''),
+      starterLong,
     });
   };
 
   buildStartLong(newPlatforms) {
     let starterLong = ``;
 
-    if (newPlatforms[0]) starterLong = "Android, iOS";
+    if (newPlatforms[0]) starterLong = 'Android, iOS';
     if (newPlatforms[1])
-      starterLong += starterLong.length > 0 ? ", Web" : "Web";
+      starterLong += starterLong.length > 0 ? ', Web' : 'Web';
     if (newPlatforms[2])
       starterLong +=
         starterLong.length > 0
-          ? ", MacOS, Windows, Linux"
-          : "MacOS, Windows, Linux";
+          ? ', MacOS, Windows, Linux'
+          : 'MacOS, Windows, Linux';
 
     return starterLong;
   }
@@ -64,7 +64,7 @@ export default class App extends React.Component {
         <View style={styles.content}>
           <Text style={styles.title}>Getting Started</Text>
           <Subtitle
-            text="Enter the app name and select the platforms the app will target. This will generate a CLI command that you can run in your terminal to create a starter React Native project targeting the selected platforms."
+            text="Enter details below to generate a CLI command that will create a React Native project targeting platforms selected."
             style={styles.caption}
           />
 
@@ -72,9 +72,8 @@ export default class App extends React.Component {
             <Text
               style={[
                 styles.h2,
-                { color: this.state.appName.length < 1 ? "#B71C1C" : "black" }
-              ]}
-            >
+                { color: this.state.appName.length < 1 ? '#B71C1C' : 'black' },
+              ]}>
               App name
             </Text>
 
@@ -83,8 +82,8 @@ export default class App extends React.Component {
               value={this.state.appName}
               label={
                 this.state.appName.length < 1
-                  ? "AppName is required"
-                  : "App Name"
+                  ? 'AppName is required'
+                  : 'App Name'
               }
               onChangeText={value => this.setState({ appName: value })}
               onClick={event => {
@@ -97,19 +96,17 @@ export default class App extends React.Component {
           <View style={styles.section}>
             <View
               style={{
-                flexDirection: "row",
-                alignItems: "center",
-                flexWrap: "wrap"
-              }}
-            >
+                flexDirection: 'row',
+                alignItems: 'center',
+                flexWrap: 'wrap',
+              }}>
               <Text
                 style={[
                   styles.h2,
                   {
-                    color: starter.length < 1 ? "#B71C1C" : "black"
-                  }
-                ]}
-              >
+                    color: starter.length < 1 ? '#B71C1C' : 'black',
+                  },
+                ]}>
                 Platforms
               </Text>
               <Text
@@ -117,12 +114,11 @@ export default class App extends React.Component {
                   styles.h2,
                   {
                     fontSize: 24,
-                    color: starter.length < 1 ? "#B71C1C" : "#555"
-                  }
-                ]}
-              >
+                    color: starter.length < 1 ? '#B71C1C' : '#555',
+                  },
+                ]}>
                 {`    ${
-                  starter.length < 1 ? 0 : starterLong.split(",").length
+                  starter.length < 1 ? 0 : starterLong.split(',').length
                 }`}
               </Text>
               <Subtitle text={starterLong} style={{ marginLeft: 8 }} />
@@ -131,28 +127,27 @@ export default class App extends React.Component {
             <View
               style={[
                 styles.row,
-                { justifyContent: pageWidth < 370 ? "center" : "flex-start" }
-              ]}
-            >
+                { justifyContent: pageWidth < 370 ? 'center' : 'flex-start' },
+              ]}>
               <PlatformButton
                 text="Mobile"
                 platform="m"
                 handlePlatform={this.handlePlatform}
-                active={platforms.find(item => item == "m")}
+                active={platforms.find(item => item == 'm')}
                 pageWidth={pageWidth}
               />
               <PlatformButton
                 text="Web"
                 platform="w"
                 handlePlatform={this.handlePlatform}
-                active={platforms.find(item => item == "w")}
+                active={platforms.find(item => item == 'w')}
                 pageWidth={pageWidth}
               />
               <PlatformButton
                 text="Electron"
                 platform="e"
                 handlePlatform={this.handlePlatform}
-                active={platforms.find(item => item == "e")}
+                active={platforms.find(item => item == 'e')}
                 endButton
                 pageWidth={pageWidth}
               />
@@ -174,47 +169,47 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   space: {
-    width: "100vw",
-    height: "100%",
-    overflowY: "auto"
+    width: '100vw',
+    height: '100%',
+    overflowY: 'auto',
   },
   content: {
-    width: "100%",
+    width: '100%',
     maxWidth: 972,
-    marginLeft: "auto",
-    marginRight: "auto",
+    marginLeft: 'auto',
+    marginRight: 'auto',
     marginTop: 60,
     marginBottom: 60,
-    backgroundColor: "white",
+    backgroundColor: 'white',
     padding: 24,
-    borderRadius: 8
+    borderRadius: 8,
   },
 
   row: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    marginTop: 16
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    marginTop: 16,
   },
   title: {
-    color: "black",
+    color: 'black',
     fontSize: 40,
-    fontFamily: "Syncopate"
+    fontFamily: 'Syncopate',
   },
   h2: {
-    color: "black",
+    color: 'black',
     fontSize: 30,
-    fontFamily: "Syncopate"
+    fontFamily: 'Syncopate',
   },
   caption: {
-    color: "black",
+    color: 'black',
     fontSize: 16,
     marginTop: 12,
-    lineHeight: 24
+    lineHeight: 24,
   },
   section: {
     marginTop: 60,
     zIndex: 100,
-    position: "relative",
-    backgroundColor: "white"
-  }
+    position: 'relative',
+    backgroundColor: 'white',
+  },
 });

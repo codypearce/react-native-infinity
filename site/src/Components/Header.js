@@ -39,7 +39,10 @@ export default class Header extends React.Component {
             url="https://github.com/codypearce/react-native-infinity"
             style={{ textDecoration: 'none', color: 'white' }}>
             <Ripple>
-              <img src="/static/images/github.svg" style={{ height: 30 }} />
+              <img
+                src="/static/images/github.svg"
+                style={{ height: 30, marginLeft: 12 }}
+              />
             </Ripple>
           </Anchor>,
         ]}
