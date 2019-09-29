@@ -6,11 +6,11 @@ module.exports = function getPlatform() {
       name: 'platform',
       message: 'What platform do you want to add? ',
       choices: [
-        { name: 'Mobile (Android, iOS)', value: 'm' },
-        { name: 'Web', value: 'w' },
-        { name: 'Electron (MacOS, Windows, Linux)', value: 'e' },
-        { name: 'MacOS (react-native-macos)', value: 'ma' },
-        { name: 'Windows (react-native-windows)', value: 'wi' },
+        { name: 'Mobile (Android, iOS)', value: 'mobile' },
+        { name: 'Web', value: 'web' },
+        { name: 'Electron (MacOS, Windows, Linux)', value: 'electron' },
+        { name: 'MacOS (react-native-macos)', value: 'macos' },
+        { name: 'Windows (react-native-windows)', value: 'windows' },
       ],
       result(value) {
         return this.map(value);
@@ -20,6 +20,7 @@ module.exports = function getPlatform() {
     .then(answers => {
       const platformArr = Object.values(answers.platform);
       const platformStr = platformArr.join('');
+
       addPlatform(platformStr);
     })
     .catch(() => {

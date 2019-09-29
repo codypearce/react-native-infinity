@@ -30,6 +30,8 @@ module.exports = function addPlatform(value) {
       `./android/`,
     );
     addedSoFar.push('android');
+  } else if (platform == 'windows') {
+    // No windows files
   } else {
     const lowerPlatform = platform.toLowerCase();
     console.log(chalk.cyan(`Setting up ${platform}`));
