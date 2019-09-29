@@ -28,6 +28,10 @@ export default class App extends React.Component {
         newPlatforms[1] = platform;
       } else if (platform == 'e') {
         newPlatforms[2] = platform;
+      } else if (platform == 'ma') {
+        newPlatforms[3] = platform;
+      } else if (platform == 'wi') {
+        newPlatforms[4] = platform;
       }
     }
 
@@ -222,6 +226,51 @@ Below is a simple GUI for generating a CLI command with the configuration you wa
                 </View>
                 <Text style={{ fontSize: 28, color: 'white', marginTop: 20 }}>
                   {'Electron'}
+                </Text>
+              </PlatformButton>
+              <PlatformButton
+                platform="ma"
+                handlePlatform={this.handlePlatform}
+                active={platforms.find(item => item == 'ma')}
+                endButton
+                pageWidth={pageWidth}>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    width: '100%',
+                  }}>
+                  <Image
+                    source={require('../../static/images/macos2.svg')}
+                    style={{
+                      height: 17,
+                      width: 66,
+                    }}
+                  />
+                </View>
+                <Text style={{ fontSize: 28, color: 'white', marginTop: 20 }}>
+                  {'MacOS'}
+                </Text>
+              </PlatformButton>
+              <PlatformButton
+                platform="wi"
+                handlePlatform={this.handlePlatform}
+                active={platforms.find(item => item == 'wi')}
+                endButton
+                pageWidth={pageWidth}>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    width: '100%',
+                  }}>
+                  <Image
+                    source={require('../../static/images/windows.png')}
+                    style={{ height: 24, width: 24 }}
+                  />
+                </View>
+                <Text style={{ fontSize: 28, color: 'white', marginTop: 20 }}>
+                  {'Windows'}
                 </Text>
               </PlatformButton>
             </View>
