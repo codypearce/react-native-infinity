@@ -1,13 +1,13 @@
 let scene, camera, renderer, controls;
-const skyboxImage = "purplenebula";
+const skyboxImage = 'purplenebula';
 
 function createPathStrings(filename) {
-  const basePath = "/static/skybox/";
+  const basePath = '/static/skybox/';
   const baseFilename = basePath + filename;
-  const fileType = ".png";
-  const sides = ["ft", "bk", "up", "dn", "rt", "lf"];
+  const fileType = '.png';
+  const sides = ['ft', 'bk', 'up', 'dn', 'rt', 'lf'];
   const pathStings = sides.map(side => {
-    return baseFilename + "_" + side + fileType;
+    return baseFilename + '_' + side + fileType;
   });
 
   return pathStings;
@@ -29,7 +29,7 @@ function init() {
     55,
     window.innerWidth / window.innerHeight,
     45,
-    30000
+    30000,
   );
   camera.position.set(1200, -250, 20000);
 
@@ -51,7 +51,7 @@ function init() {
   controls.autoRotate = true;
   controls.autoRotateSpeed = 1.0;
 
-  window.addEventListener("resize", onWindowResize, false);
+  window.addEventListener('resize', onWindowResize, false);
   animate();
 }
 function onWindowResize() {
@@ -65,11 +65,12 @@ function animate() {
   controls.update();
   renderer.render(scene, camera);
   requestAnimationFrame(animate);
-  if (controls.enabled == true && window.location.pathname !== "/") {
-    controls.enabled = false;
-  } else if (controls.enabled == false && window.location.pathname == "/") {
-    controls.enabled = true;
-  }
+  controls.enabled = false;
+  // if (controls.enabled == true && window.location.pathname !== '/') {
+  //   controls.enabled = false;
+  // } else if (controls.enabled == false && window.location.pathname == '/') {
+  //   controls.enabled = true;
+  // }
 }
 
 init();

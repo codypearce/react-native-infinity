@@ -1,16 +1,15 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { View } from "react-native";
+import React from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { View } from 'react-native';
 
-import Home from "./Pages/Home";
-import Interactive from "./Pages/Interactive";
-import CLI from "./Pages/CLI";
+import Home from './Pages/Home';
+import NotFound from './Pages/NotFound';
 
-import Header from "./Components/Header";
+import Header from './Components/Header';
 
 export default class AppRouter extends React.Component {
   state = {
-    width: 1080
+    width: 1080,
   };
 
   handleLayout = event => {
@@ -26,24 +25,14 @@ export default class AppRouter extends React.Component {
         <div>
           <Header />
           <View
-            style={{ height: "100vh", paddingTop: 56 }}
-            onLayout={this.handleLayout}
-          >
+            style={{ height: '100vh', paddingTop: 56 }}
+            onLayout={this.handleLayout}>
             <Route
               path="/"
               exact
               render={props => <Home pageWidth={width} />}
             />
-            <Route
-              path="/interactive"
-              exact
-              render={props => <Interactive pageWidth={width} />}
-            />
-            <Route
-              path="/cli"
-              exact
-              render={props => <CLI pageWidth={width} />}
-            />
+            <Route render={props => <NotFound pageWidth={width} />} />
           </View>
         </div>
       </Router>

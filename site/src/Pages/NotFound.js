@@ -10,12 +10,9 @@ export default class App extends React.Component {
       <View style={styles.space}>
         <View style={styles.content}>
           <Text style={[styles.title, { fontSize: pageWidth < 600 ? 30 : 58 }]}>
-            REACT NATIVE INFINITY
+            404
           </Text>
-          <Subtitle
-            text="A React Native CLI For All Platforms"
-            style={styles.caption}
-          />
+          <Subtitle text="Not Found" style={styles.caption} />
           <View style={styles.row}></View>
         </View>
       </View>
@@ -33,6 +30,8 @@ const styles = StyleSheet.create({
     height: '100vh',
     width: '100vw',
     marginTop: -56,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   row: {
     flexDirection: 'row',

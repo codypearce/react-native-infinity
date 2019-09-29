@@ -1,13 +1,13 @@
-import React from "react";
-import { StyleSheet } from "react-native";
-import { Appbar, Anchor, Ripple } from "material-bread";
-import HeaderLink from "./HeaderLink";
-import { Link } from "react-router-dom";
-import MCIconButton from "./MCIconButton";
+import React from 'react';
+import { StyleSheet } from 'react-native';
+import { Appbar, Anchor, Ripple } from 'material-bread';
+import HeaderLink from './HeaderLink';
+import { Link } from 'react-router-dom';
+import MCIconButton from './MCIconButton';
 
 export default class Header extends React.Component {
   state = {
-    width: 1080
+    width: 1080,
   };
   handleLayout = event => {
     const width = event.nativeEvent.layout.width;
@@ -19,41 +19,29 @@ export default class Header extends React.Component {
     return (
       <Appbar
         onLayout={this.handleLayout}
-        barType={"normal"}
+        barType={'normal'}
         elevation={0}
-        style={{ backgroundColor: "transparent", boxShadow: "none" }}
+        style={{ backgroundColor: 'transparent', boxShadow: 'none' }}
         title={
           <Link
-            to={"/"}
+            to={'/'}
             style={{
-              textDecoration: "none",
-              color: "white",
-              fontFamily: "Syncopate"
-            }}
-          >
-            {widthSmall ? "RNI" : " REACT NATIVE INFINITY"}
+              textDecoration: 'none',
+              color: 'white',
+              fontFamily: 'Syncopate',
+            }}>
+            {widthSmall ? 'RNI' : ' REACT NATIVE INFINITY'}
           </Link>
         }
-        position={"absolute"}
+        position={'absolute'}
         actionItems={[
-          <HeaderLink
-            text={"Interactive"}
-            to={"/interactive"}
-            buttonProps={{ textColor: "white" }}
-          />,
-          <HeaderLink
-            text={"CLI"}
-            to={"/cli"}
-            buttonProps={{ textColor: "white" }}
-          />,
           <Anchor
             url="https://github.com/codypearce/react-native-infinity"
-            style={{ textDecoration: "none", color: "white" }}
-          >
+            style={{ textDecoration: 'none', color: 'white' }}>
             <Ripple>
               <img src="/static/images/github.svg" style={{ height: 30 }} />
             </Ripple>
-          </Anchor>
+          </Anchor>,
         ]}
       />
     );
