@@ -63,6 +63,8 @@ export default class App extends React.Component {
     const { platforms, starterLong, starter } = this.state;
     const { pageWidth } = this.props;
 
+    const iconSize = 28;
+
     return (
       <View style={styles.space}>
         <View style={styles.content}>
@@ -150,12 +152,12 @@ Below is a simple GUI for generating a CLI command with the configuration you wa
                     width: '100%',
                   }}>
                   <Image
-                    source={require('../../static/images/apple.png')}
-                    style={{ height: 24, width: 24 }}
+                    source={require('../../static/images/apple.svg')}
+                    style={{ height: iconSize, width: iconSize }}
                   />
                   <Image
-                    source={require('../../static/images/android.png')}
-                    style={{ height: 24, width: 24 }}
+                    source={require('../../static/images/android.svg')}
+                    style={{ height: iconSize, width: iconSize }}
                   />
                 </View>
                 <Text style={{ fontSize: 28, color: 'white', marginTop: 20 }}>
@@ -174,20 +176,20 @@ Below is a simple GUI for generating a CLI command with the configuration you wa
                     width: '100%',
                   }}>
                   <Image
-                    source={require('../../static/images/chrome.png')}
-                    style={{ height: 24, width: 24 }}
+                    source={require('../../static/images/chrome.svg')}
+                    style={{ height: iconSize, width: iconSize }}
                   />
                   <Image
-                    source={require('../../static/images/firefox.png')}
-                    style={{ height: 24, width: 24 }}
+                    source={require('../../static/images/firefox.svg')}
+                    style={{ height: iconSize, width: iconSize }}
                   />
                   <Image
-                    source={require('../../static/images/edge.png')}
-                    style={{ height: 24, width: 24 }}
+                    source={require('../../static/images/edge.svg')}
+                    style={{ height: iconSize, width: iconSize }}
                   />
                   <Image
-                    source={require('../../static/images/safari.png')}
-                    style={{ height: 24, width: 24 }}
+                    source={require('../../static/images/safari.svg')}
+                    style={{ height: iconSize, width: iconSize }}
                   />
                 </View>
                 <Text style={{ fontSize: 28, color: 'white', marginTop: 20 }}>
@@ -207,13 +209,13 @@ Below is a simple GUI for generating a CLI command with the configuration you wa
                     width: '100%',
                   }}>
                   <Image
-                    source={require('../../static/images/windows.png')}
-                    style={{ height: 24, width: 24 }}
+                    source={require('../../static/images/windows.svg')}
+                    style={{ height: iconSize, width: iconSize }}
                   />
 
                   <Image
-                    source={require('../../static/images/linux.png')}
-                    style={{ height: 24, width: 24 }}
+                    source={require('../../static/images/linux.svg')}
+                    style={{ height: iconSize, width: iconSize }}
                   />
                   <Image
                     source={require('../../static/images/macos2.svg')}
@@ -265,8 +267,8 @@ Below is a simple GUI for generating a CLI command with the configuration you wa
                     width: '100%',
                   }}>
                   <Image
-                    source={require('../../static/images/windows.png')}
-                    style={{ height: 24, width: 24 }}
+                    source={require('../../static/images/windows.svg')}
+                    style={{ height: iconSize + 2, width: iconSize + 2 }}
                   />
                 </View>
                 <Text style={{ fontSize: 28, color: 'white', marginTop: 20 }}>

@@ -63,7 +63,7 @@ body {
   transition: opacity 0.3s ease-in-out;
   border-radius: 10px;
 }
-.glow-on-hover:nth-of-type(2)::before {
+.glow-on-hover:nth-of-type(2n)::before {
   content: '';
   background: linear-gradient(
     45deg,
@@ -81,7 +81,7 @@ body {
   animation: glowing 21s linear infinite;
 }
 
-.glow-on-hover:nth-of-type(3)::before {
+.glow-on-hover:nth-of-type(3n)::before {
   content: '';
   background: linear-gradient(
     45deg,
