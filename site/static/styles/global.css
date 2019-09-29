@@ -103,11 +103,11 @@ body {
   color: #000;
 }
 
-.glow-on-hover:hover:after {
-  background: transparent;
-}
 .glow-on-hover.glow--selected:after {
   background: rgba(0, 0, 0, 0.2);
+}
+.glow-on-hover:hover:after {
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .glow-on-hover:before {
@@ -136,5 +136,21 @@ body {
   }
   100% {
     background-position: 0 0;
+  }
+}
+
+.title-glow {
+  color: #ffffff;
+  text-shadow: 0 0 10px #ffffff;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073,
+      0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6,
+      0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
   }
 }

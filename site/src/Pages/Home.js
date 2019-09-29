@@ -60,7 +60,7 @@ export default class App extends React.Component {
   }
 
   render() {
-    const { platforms, starterLong, starter } = this.state;
+    const { platforms, starter } = this.state;
     const { pageWidth } = this.props;
 
     const iconSize = 28;
@@ -69,10 +69,20 @@ export default class App extends React.Component {
       <View style={styles.space}>
         <View style={styles.content}>
           <View style={styles.topSection}>
-            <Text
-              style={[styles.title, { fontSize: pageWidth < 600 ? 30 : 40 }]}>
-              REACT NATIVE INFINITY
-            </Text>
+            <span
+              className="title-glow"
+              style={{
+                ...styles.title,
+                fontFamily: 'Syncopate',
+                fontSize: pageWidth < 600 ? 30 : 44,
+                color: 'white',
+              }}>
+              <span>R</span>
+              <span>E</span>
+              <span>A</span>
+              <span>C</span>
+              <span>T</span> <span>NATIVE</span> <span>INFINITY</span>
+            </span>
             <Subtitle
               text={`React Native Infinity is a React Native CLI that generates projects to target multiple platforms. Please check out the github project for more information.
 
@@ -302,7 +312,7 @@ const styles = StyleSheet.create({
     maxWidth: 972,
     marginLeft: 'auto',
     marginRight: 'auto',
-    marginTop: 60,
+    marginTop: 20,
     marginBottom: 60,
     backgroundColor: 'rgba(0,0,0,.5)',
     padding: 24,
@@ -318,7 +328,7 @@ const styles = StyleSheet.create({
     marginTop: 16,
   },
   title: {
-    color: '#ededed',
+    color: 'white',
     fontSize: 34,
     fontFamily: 'Syncopate',
   },

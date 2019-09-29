@@ -30,7 +30,7 @@ export default class Header extends React.Component {
               color: 'white',
               fontFamily: 'Syncopate',
             }}>
-            {widthSmall ? 'RNI' : ' REACT NATIVE INFINITY'}
+            {'RNI'}
           </Link>
         }
         position={'absolute'}
