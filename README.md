@@ -18,9 +18,6 @@
 
 You can use the [interactive](https://www.reactnativeinfinity.com/) tool in the docs to generate the CLI command you need, or simply use `npx react-native-infinity init` to use the CLI interactive tool.
 
-<br>
-
-## Features
 * __Multi-Platform__ - Choose any combination of 6 platforms to target (iOS, Android, Web, Electron, Windows, MacOS)
 * __Add Platform__ - Add another platform anytime with `add-platform` command
 * __UI Library__ - Add cross-platform UI libraries (Material Bread, UI Kitten)
@@ -63,7 +60,9 @@ $  npx react-native-infinity <command>
 
 ## ❯ init
 
-`init <name>` where <name> is an optional paramter that indicates the name of the folder and app. Additional options are passed when using the generated GUI tool.
+`init` without a parameter will run an interactive prompt to gather the name, platforms, and UI library for the project. 
+
+`init` with the parameter `<name>` provides the name of the app without using the interactive prompt. Although there are additional options and paramters, they are only used with the GUI tool on the website.
 
 <p align="center">
 
@@ -75,17 +74,28 @@ $  npx react-native-infinity <command>
 
 ## ❯ add-platform
 
-`add-platform` command adds a platform after project initialization. Pass in a single platform from those listed in the `list` section
+`add-platform` without a parameter starts a prompt to select a platform to add to your project.
+
+`add-platform <platform>` with a parameter accepts a lowercase string indicating the platform to add.
 
 ```
 npx react-native-infinity add-platform electron
 ```
 
+Supported platform strings:
+* mobile
+* web
+* electron
+* macos
+* windows
+
+<img src="https://raw.githubusercontent.com/codypearce/react-native-infinity/master/media/add-platform.gif" alt="Init Command" width="750">
+
 <br>
 
 ## ❯ list
 
-`npx react-native-infinity list` lists all supported platforms with the name you pass into `--starter`
+`list` lists all supported platforms with the shorthand name the GUI supports
 
 <p align="center">
 
