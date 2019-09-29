@@ -79,6 +79,10 @@ $  npx react-native-infinity <command>
 npx react-native-infinity add-platform electron
 ```
 
+<p align="center">
+<img src="https://raw.githubusercontent.com/codypearce/react-native-infinity/master/media/add-platform.gif" alt="Init Command" width="750">
+</p>
+
 Supported platform strings:
 * mobile
 * web
@@ -86,7 +90,6 @@ Supported platform strings:
 * macos
 * windows
 
-<img src="https://raw.githubusercontent.com/codypearce/react-native-infinity/master/media/add-platform.gif" alt="Init Command" width="750">
 
 <br>
 
@@ -192,10 +195,10 @@ Simply runs `react-native run-ios`, read the React Native docs for more informat
 <br>
 
 ## UI Libraries
-Extending the idea of isolated configuration further we can easily copy over configuration for UI library setup as another step in initialization. Currently there are not many UI libraries that provide explicit support for all platforms, if you know of any more that should be added, please do not hesitate to create an issue or PR.
+By extending the idea of isolated configuration further, we can easily copy over configuration for UI library setup as another step in initialization. Currently there are not many UI libraries that provide explicit support for all platforms, if you know of any more that should be added, please do not hesitate to create an issue or PR.
 
 ### Material Bread
-Material Bread supports all platformsa and configuration is pretty simple, however, it does require setting up `react-native-vector-icon`s and `react-native-svg` if rendering on Android or IOS. Please read the docs for [more information](https://github.com/codypearce/material-bread).
+Material Bread supports all platforms and configuration is pretty simple, however, it does require setting up `react-native-vector-icon`s and `react-native-svg` if rendering on Android or IOS. Please read the docs for [more information](https://github.com/codypearce/material-bread).
 
 ### UI Kitten
 UI Kitten recently added support for `react-native-web`, and configuration is very easy: simply select UI Kitten during `init`. Please read the documentation for [more information](https://akveo.github.io/react-native-ui-kitten/).
