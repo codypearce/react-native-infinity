@@ -94,7 +94,7 @@ export default class App extends React.Component {
               }}>
               <Image
                 source={require('../../static/images/material-bread.svg')}
-                style={{ height: 40, width: 50 }}
+                style={{ height: 40, width: 50, backgroundSize: 'contain' }}
               />
             </View>
             <Text style={{ fontSize: 26, color: 'white', marginTop: 10 }}>
@@ -114,7 +114,7 @@ export default class App extends React.Component {
               }}>
               <Image
                 source={require('../../static/images/ui-kitten.png')}
-                style={{ height: 31, width: 133 }}
+                style={{ height: 31, width: 133, backgroundSize: 'contain' }}
               />
             </View>
             <Text style={{ fontSize: 28, color: 'white', marginTop: 20 }}>
@@ -230,11 +230,19 @@ Below is a simple GUI for generating a CLI command with the configuration you wa
                   }}>
                   <Image
                     source={require('../../static/images/apple.svg')}
-                    style={{ height: iconSize, width: iconSize }}
+                    style={{
+                      height: iconSize,
+                      width: iconSize,
+                      backgroundSize: 'contain',
+                    }}
                   />
                   <Image
                     source={require('../../static/images/android.svg')}
-                    style={{ height: iconSize, width: iconSize }}
+                    style={{
+                      height: iconSize,
+                      width: iconSize,
+                      backgroundSize: 'contain',
+                    }}
                   />
                 </View>
                 <Text style={{ fontSize: 28, color: 'white', marginTop: 20 }}>
@@ -254,19 +262,35 @@ Below is a simple GUI for generating a CLI command with the configuration you wa
                   }}>
                   <Image
                     source={require('../../static/images/chrome.svg')}
-                    style={{ height: iconSize, width: iconSize }}
+                    style={{
+                      height: iconSize,
+                      width: iconSize,
+                      backgroundSize: 'contain',
+                    }}
                   />
                   <Image
                     source={require('../../static/images/firefox.svg')}
-                    style={{ height: iconSize, width: iconSize }}
+                    style={{
+                      height: iconSize,
+                      width: iconSize,
+                      backgroundSize: 'contain',
+                    }}
                   />
                   <Image
                     source={require('../../static/images/edge.svg')}
-                    style={{ height: iconSize, width: iconSize }}
+                    style={{
+                      height: iconSize,
+                      width: iconSize,
+                      backgroundSize: 'contain',
+                    }}
                   />
                   <Image
                     source={require('../../static/images/safari.svg')}
-                    style={{ height: iconSize, width: iconSize }}
+                    style={{
+                      height: iconSize,
+                      width: iconSize,
+                      backgroundSize: 'contain',
+                    }}
                   />
                 </View>
                 <Text style={{ fontSize: 28, color: 'white', marginTop: 20 }}>
@@ -287,12 +311,20 @@ Below is a simple GUI for generating a CLI command with the configuration you wa
                   }}>
                   <Image
                     source={require('../../static/images/windows.svg')}
-                    style={{ height: iconSize, width: iconSize }}
+                    style={{
+                      height: iconSize,
+                      width: iconSize,
+                      backgroundSize: 'contain',
+                    }}
                   />
 
                   <Image
                     source={require('../../static/images/linux.svg')}
-                    style={{ height: iconSize, width: iconSize }}
+                    style={{
+                      height: iconSize,
+                      width: iconSize,
+                      backgroundSize: 'contain',
+                    }}
                   />
                   <Image
                     source={require('../../static/images/macos2.svg')}
@@ -324,6 +356,7 @@ Below is a simple GUI for generating a CLI command with the configuration you wa
                     style={{
                       height: 17,
                       width: 66,
+                      backgroundSize: 'contain',
                     }}
                   />
                 </View>
@@ -345,7 +378,11 @@ Below is a simple GUI for generating a CLI command with the configuration you wa
                   }}>
                   <Image
                     source={require('../../static/images/windows.svg')}
-                    style={{ height: iconSize + 2, width: iconSize + 2 }}
+                    style={{
+                      height: iconSize + 2,
+                      width: iconSize + 2,
+                      backgroundSize: 'contain',
+                    }}
                   />
                 </View>
                 <Text style={{ fontSize: 28, color: 'white', marginTop: 20 }}>

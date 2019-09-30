@@ -8,6 +8,15 @@ const merge = require('merge-package-json');
 module.exports = function addUILibrary(library, platforms, name) {
   const uilibrary = findUILibrary(library);
 
+  if (!uilibrary) {
+    console.log(
+      `${chalk.red.bold(
+        'ERROR',
+      )}: UI Library is either not valid or not supported. Not setting up, please Try again.`,
+    );
+    return;
+  }
+
   console.log(chalk.cyan(`Setting up ${uilibrary.name}`));
 
   const directory = '../../starters/uilibrary/';
