@@ -55,7 +55,7 @@ export default class App extends React.Component {
 
   _renderUILibraries() {
     const { uilibrary } = this.state;
-    const { pageWidth } = this.props;
+    const { pageWidth, mode } = this.props;
 
     return (
       <View style={styles.section}>
@@ -66,6 +66,7 @@ export default class App extends React.Component {
             flexWrap: 'wrap',
           }}>
           <Text
+            className={mode == 'space' ? 'title-glow' : ''}
             style={[
               styles.h2,
               {
@@ -82,6 +83,7 @@ export default class App extends React.Component {
             { justifyContent: pageWidth < 370 ? 'center' : 'flex-start' },
           ]}>
           <PlatformButton
+            mode={mode}
             platform="m"
             handlePlatform={this.handleUILibrary}
             active={uilibrary == 'm'}
@@ -102,6 +104,7 @@ export default class App extends React.Component {
             </Text>
           </PlatformButton>
           <PlatformButton
+            mode={mode}
             platform="k"
             handlePlatform={this.handleUILibrary}
             active={uilibrary == 'k'}
@@ -128,16 +131,23 @@ export default class App extends React.Component {
 
   render() {
     const { platforms, starter, uilibrary } = this.state;
-    const { pageWidth } = this.props;
+    const { pageWidth, mode } = this.props;
 
     const iconSize = 28;
 
     return (
       <View style={styles.space}>
-        <View style={styles.content}>
+        <View
+          style={[
+            styles.content,
+            {
+              backgroundColor:
+                mode == 'dark' ? 'transparent' : 'rgba(0,0,0,.5)',
+            },
+          ]}>
           <View style={styles.topSection}>
             <span
-              className="title-glow"
+              className={mode == 'space' ? 'title-glow' : ''}
               style={{
                 ...styles.title,
                 fontFamily: 'Syncopate',
@@ -160,6 +170,7 @@ Below is a simple GUI for generating a CLI command with the configuration you wa
 
           <View style={styles.section}>
             <Text
+              className={mode == 'space' ? 'title-glow' : ''}
               style={[
                 styles.h2,
                 {
@@ -201,6 +212,7 @@ Below is a simple GUI for generating a CLI command with the configuration you wa
                 flexWrap: 'wrap',
               }}>
               <Text
+                className={mode == 'space' ? 'title-glow' : ''}
                 style={[
                   styles.h2,
                   {
@@ -217,6 +229,7 @@ Below is a simple GUI for generating a CLI command with the configuration you wa
                 { justifyContent: pageWidth < 370 ? 'center' : 'flex-start' },
               ]}>
               <PlatformButton
+                mode={mode}
                 text="Mobile"
                 platform="m"
                 handlePlatform={this.handlePlatform}
@@ -250,6 +263,7 @@ Below is a simple GUI for generating a CLI command with the configuration you wa
                 </Text>
               </PlatformButton>
               <PlatformButton
+                mode={mode}
                 platform="w"
                 handlePlatform={this.handlePlatform}
                 active={platforms.find(item => item == 'w')}
@@ -298,6 +312,7 @@ Below is a simple GUI for generating a CLI command with the configuration you wa
                 </Text>
               </PlatformButton>
               <PlatformButton
+                mode={mode}
                 platform="e"
                 handlePlatform={this.handlePlatform}
                 active={platforms.find(item => item == 'e')}
@@ -340,6 +355,7 @@ Below is a simple GUI for generating a CLI command with the configuration you wa
                 </Text>
               </PlatformButton>
               <PlatformButton
+                mode={mode}
                 platform="ma"
                 handlePlatform={this.handlePlatform}
                 active={platforms.find(item => item == 'ma')}
@@ -365,6 +381,7 @@ Below is a simple GUI for generating a CLI command with the configuration you wa
                 </Text>
               </PlatformButton>
               <PlatformButton
+                mode={mode}
                 platform="wi"
                 handlePlatform={this.handlePlatform}
                 active={platforms.find(item => item == 'wi')}
@@ -394,7 +411,11 @@ Below is a simple GUI for generating a CLI command with the configuration you wa
 
           {this._renderUILibraries()}
           <View style={styles.section}>
-            <Text style={styles.h2}>CLI Command</Text>
+            <Text
+              className={mode == 'space' ? 'title-glow' : ''}
+              style={styles.h2}>
+              CLI Command
+            </Text>
             <CLICard
               appName={this.state.appName}
               starter={this.state.starter}

@@ -1,5 +1,6 @@
 let scene, camera, renderer, controls;
 const skyboxImage = 'purplenebula';
+window.isRunning = true;
 
 function createPathStrings(filename) {
   const basePath = '/static/skybox/';
@@ -35,6 +36,7 @@ function init() {
 
   renderer = new THREE.WebGLRenderer({ antialias: true });
   renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.domElement.id = 'canvas';
   document.body.appendChild(renderer.domElement);
 
   const materialArray = createMaterialArray();
@@ -62,15 +64,29 @@ function onWindowResize() {
 }
 
 function animate() {
-  controls.update();
-  renderer.render(scene, camera);
-  requestAnimationFrame(animate);
+  if (isRunning) {
+    controls.update();
+    renderer.render(scene, camera);
+    requestAnimationFrame(animate);
+  }
 
   // if (controls.enabled == true && window.location.pathname !== '/') {
   //   controls.enabled = false;
   // } else if (controls.enabled == false && window.location.pathname == '/') {
   //   controls.enabled = true;
   // }
+}
+
+function toggleSpace(mode) {
+  if (mode == 'space') {
+    window.isRunning = true;
+    document.getElementById('canvas').style.display = 'block';
+
+    animate();
+  } else {
+    window.isRunning = false;
+    document.getElementById('canvas').style.display = 'none';
+  }
 }
 
 init();

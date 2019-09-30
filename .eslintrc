@@ -16,7 +16,7 @@
     "react/no-typos": 0,
     "no-console": 0
   },
-  "plugins": ["prettier", "import"],
+  "plugins": ["prettier", "import", "react"],
   "settings": {
     "import/resolver": {
       "node": {

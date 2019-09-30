@@ -5,10 +5,22 @@ import { Card, Button } from 'material-bread';
 
 export default class PlatformButton extends React.Component {
   render() {
-    const { children, platform, active, endButton, pageWidth } = this.props;
+    const {
+      children,
+      platform,
+      active,
+      endButton,
+      pageWidth,
+      mode,
+    } = this.props;
+
+    const isSpace = mode == 'space';
+    const buttonClass = isSpace
+      ? `glow-on-hover ${active ? 'glow--selected' : ''}`
+      : `button--dark ${active ? 'button--selected' : ''}`;
 
     return (
-      <button className={`glow-on-hover ${active ? 'glow--selected' : ''}`}>
+      <button className={buttonClass}>
         <Button
           type="flat"
           containerStyle={{}}
