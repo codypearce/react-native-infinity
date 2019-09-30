@@ -8,6 +8,7 @@ const platformCommand = require('../../console/platformCommand');
 const createPackageJson = require('../../lib/createPackageJson');
 const handleFolderExists = require('../../lib/handleFolderExists');
 const addUILibrary = require('../../lib/addUILibrary');
+const log = require('../../console/log');
 
 function handleFound(starter, platforms, name, uilibrary) {
   if (handleFolderExists(`./${name}/`, name, [])) return;
@@ -17,7 +18,7 @@ function handleFound(starter, platforms, name, uilibrary) {
   try {
     fs.copySync(path.resolve(__dirname, `../../../starters/core/.`), name);
   } catch (err) {
-    console.log('core error', err);
+    log.error(`Core Error: ${err}`);
   }
 
   // Copy Platform logic
@@ -32,7 +33,7 @@ function handleFound(starter, platforms, name, uilibrary) {
           `${name}/ios/`,
         );
       } catch (err) {
-        console.log('ios error', err);
+        log.error(`ios Error: ${err}`);
       }
 
       console.log(chalk.cyan('Setting up Android'));

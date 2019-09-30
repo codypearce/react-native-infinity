@@ -55,10 +55,8 @@ module.exports = function addPlatform(value) {
   } catch (err) {
     // Remove Created Folders
     removePlatformFolder(addedSoFar);
-    console.log(
-      `${chalk.red.bold(
-        'ERROR',
-      )}: Cannnot find your project's package.json, you must be at the root of your current RN project.`,
+    log.error(
+      `Cannnot find your project's package.json, you must be at the root of your current RN project.`,
     );
 
     newLine(1);
@@ -125,3 +123,4 @@ const platformCommand = require('../console/platformCommand');
 const getPlatform = require('../interactive/getPlatform');
 const handleFolderExists = require('../lib/handleFolderExists');
 const removePlatformFolder = require('../lib/removePlatformFolder');
+const log = require('../console/log');

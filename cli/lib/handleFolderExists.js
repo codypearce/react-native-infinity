@@ -1,14 +1,12 @@
-const chalk = require('chalk');
 const folderExists = require('../utils/folderExists');
 const removePlatformFolder = require('./removePlatformFolder');
+const log = require('../console/log');
 
 function handleFolderExists(pathToFolder, name, platformsAdded) {
   const exists = folderExists(pathToFolder, name);
   if (exists) {
-    console.log(
-      `${chalk.red.bold(
-        'ERROR',
-      )}: ${name} folder already exists, not overwriting. Maybe ${name} is already set up? Reverting changes so far.`,
+    log.error(
+      `${name} folder already exists, not overwriting. Maybe ${name} is already set up? Reverting changes so far.`,
     );
     const isArray = Array.isArray(platformsAdded);
     if (isArray && platformsAdded.length > 0) {

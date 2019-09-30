@@ -4,15 +4,14 @@ const chalk = require('chalk');
 const findUILibrary = require('./findUILibrary');
 const folderExists = require('../utils/folderExists');
 const merge = require('merge-package-json');
+const log = require('../console/log');
 
 module.exports = function addUILibrary(library, platforms, name) {
   const uilibrary = findUILibrary(library);
 
   if (!uilibrary) {
-    console.log(
-      `${chalk.red.bold(
-        'ERROR',
-      )}: UI Library is either not valid or not supported. Not setting up, please Try again.`,
+    log.error(
+      `UI Library is either not valid or not supported. Not setting up, please Try again.`,
     );
     return;
   }
