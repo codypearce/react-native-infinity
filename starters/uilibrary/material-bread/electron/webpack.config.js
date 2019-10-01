@@ -13,7 +13,7 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        exclude: /node_modules\/(?!(material-bread|react-native-vector-icons)\/).*/,
+        exclude: /node_modules\/(?!(react-native-ui-kitten|material-bread|react-native-vector-icons)\/).*/,
         use: {
           loader: 'babel-loader',
           options: {
