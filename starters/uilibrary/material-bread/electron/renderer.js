@@ -10,14 +10,14 @@ document.fonts.add(materialFont);
 const root = document.getElementById('app');
 
 const renderApp = () => {
-  const App = require('./App').default;
+  const App = require('../src/App').default;
   if (root) render(<App />, root);
 };
 
 renderApp();
 
 if (module && module.hot != null && typeof module.hot.accept === 'function') {
-  module.hot.accept(['./App'], () =>
+  module.hot.accept(['../src/App'], () =>
     setImmediate(() => {
       unmountComponentAtNode(root);
       renderApp();
