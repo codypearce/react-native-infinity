@@ -1,6 +1,6 @@
 {
   "name": "react-native-infinity",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "scripts": {
     "lint": "./node_modules/.bin/eslint './cli/'",
     "test": "echo \"Error: no test specified\" && exit 1",
