@@ -9,7 +9,7 @@ export default class Header extends React.Component {
   state = {
     width: 1080,
   };
-  handleLayout = event => {
+  handleLayout = (event) => {
     const width = event.nativeEvent.layout.width;
     this.setState({ width });
   };
@@ -42,6 +42,22 @@ export default class Header extends React.Component {
         }
         position={'absolute'}
         actionItems={[
+          <Anchor
+            url="https://codinhood.com/dynamic-react-native-starters"
+            containerStyle={{}}>
+            <Ripple>
+              <BodyText
+                style={{
+                  color: 'white',
+                  textDecoration: 'none',
+                  color: 'white',
+                  marginRight: 60,
+                  display: 'block',
+                }}
+                text={'Learn More'}
+              />
+            </Ripple>
+          </Anchor>,
           <Switch
             onPress={this.toggleMode}
             checked={mode == 'dark'}
