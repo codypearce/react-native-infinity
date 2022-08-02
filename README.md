@@ -16,7 +16,7 @@
 <img src="https://raw.githubusercontent.com/codypearce/react-native-infinity/master/media/init-final.gif" alt="Init Command" width="750">
 </p>
 
-You can use the [interactive](https://www.reactnativeinfinity.com/) tool in the docs to generate the CLI command you need, or simply use `npx react-native-infinity init` to use the CLI interactive tool.
+Simply use `npx react-native-infinity init` to use the CLI interactive tool.
 
 * __Multi-Platform__ - Choose any combination of 6 platforms to target (iOS, Android, Web, Electron, Windows, MacOS)
 * __Add Platform__ - Add another platform anytime with `add-platform` command
